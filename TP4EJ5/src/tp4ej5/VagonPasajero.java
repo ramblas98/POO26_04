@@ -11,27 +11,33 @@ public class VagonPasajero extends Vagon{
     }
 
     public VagonPasajero(double largo, double ancho, int cantP) {
+        super(largo, ancho);
         this.cantP = cantP;
     }
 
-    public void getters() {
+     public int getCantP(){
+        return this.cantP;
     }
-
-    public void setters() {
+    public void setCantP(int cantP) {
+        this.cantP = cantP;
     }
 
     @Override
     public double pesoMaximo() {
-        return 0.0;
+        return this.cantidadPasajeros()*80;
     }
 
     @Override
     public boolean esLiviano() {
-        return false;
+        return this.pesoMaximo()<25000;
     }
 
     @Override
     public int cantidadPasajeros() {
-        return 0;
+        //ancho útil
+        if(super.getAncho()<=2.5){
+            return (int) ((super.getLargo()*8));
+        }
+        return (int) ((super.getLargo()*10)/1);
     }
 }
