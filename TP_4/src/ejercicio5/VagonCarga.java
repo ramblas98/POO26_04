@@ -14,10 +14,8 @@ public class VagonCarga extends Vagon{
         this.cargaMaxima = cargaMaxima;
     }
 
-    public void getters() {
-    }
-
-    public void setters() {
+    public double getCargaMaxima() {
+        return cargaMaxima;
     }
 
     @Override
@@ -27,8 +25,9 @@ public class VagonCarga extends Vagon{
 
     @Override
     public boolean esLiviano() {
-        if(){
-
+        if(cargaMaxima < 2500.0){
+            return true;
         }
+        return false;
     }
 }

@@ -22,7 +22,7 @@ public class VagonPasajero extends Vagon{
 
     @Override
     public double pesoMaximo() {
-        return 0.0;
+        return cantP*80;
     }
 
     @Override

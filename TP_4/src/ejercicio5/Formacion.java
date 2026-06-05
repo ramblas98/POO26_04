@@ -73,10 +73,42 @@ public class Formacion {
     }
 
     public double kiloEmpujeFaltantes() {
-        return 0.0;
+        if(puedeMoverse()){
+            return 0.0;
+        }
+        double total1 = 0.0;
+        double total2 = 0.0;
+        for(Vagon i : vagones){
+            total1 += i.pesoMaximo();
+        }
+
+        for(Locomotora i : locomotoras){
+            total2 += i.getVelocidadMaxima();
+        }
+
+        return total1 - total2;
+
     }
 
     public boolean esCompleja() {
+        int suma = vagones.size() + locomotoras.size();
+
+        double totalpeso = 0;
+        for(Locomotora i : locomotoras){
+            totalpeso += i.getPeso();
+        }
+
+        for(Vagon i : vagones){
+            totalpeso += i.pesoMaximo();
+        }
+
+        if(totalpeso > 20 || suma > 20){
+            return true;
+        }
         return false;
+    }
+
+    public Vagon vagonMasPesado(){
+
     }
 }

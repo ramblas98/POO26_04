@@ -6,6 +6,9 @@ public class Locomotora {
     private double velocidadMaxima;
 
     public Locomotora() {
+        this.peso = 10;
+        this.pesoMaximo = 60;
+        this.velocidadMaxima = 30;
     }
 
     public Locomotora(double peso, double pesoMaximo, double velocidadMaxima) {
