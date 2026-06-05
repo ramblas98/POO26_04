@@ -22,11 +22,13 @@ public class VagonCarga extends Vagon{
 
     @Override
     public double pesoMaximo() {
-        return 0.0;
+        return cargaMaxima+160;
     }
 
     @Override
     public boolean esLiviano() {
-        return false;
+        if(){
+
+        }
     }
 }

@@ -8,7 +8,8 @@ public class Deposito {
     public Deposito() {
     }
 
-    public void getters() {
+    public ArrayList<Formacion> getListaFormacion() {
+        return listaFormaciones;
     }
 
     public void setters() {

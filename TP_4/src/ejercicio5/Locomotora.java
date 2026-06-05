@@ -14,9 +14,27 @@ public class Locomotora {
         this.velocidadMaxima = velocidadMaxima;
     }
 
-    public void getters() {
+    public double getPeso() {
+        return peso;
     }
 
-    public void setters() {
+    public double getPesoMaximo() {
+        return pesoMaximo;
+    }
+
+    public double getVelocidadMaxima() {
+        return velocidadMaxima;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public void setPesoMaximo(double pesoMaximo) {
+        this.pesoMaximo = pesoMaximo;
+    }
+
+    public void setVelocidadMaxima(double velocidadMaxima) {
+        this.velocidadMaxima = velocidadMaxima;
     }
 }

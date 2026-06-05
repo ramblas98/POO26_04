@@ -12,11 +12,15 @@ public abstract class  Vagon {
         this.ancho = ancho;
     }
 
-    public void getters() {
+    public double getAncho() {
+        return ancho;
     }
 
-    public void setters() {
+    public double getLargo() {
+        return largo;
     }
+
+
 
     public int cantidadPasajeros() {
         return 0;

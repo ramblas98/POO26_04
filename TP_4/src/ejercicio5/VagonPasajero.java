@@ -32,6 +32,6 @@ public class VagonPasajero extends Vagon{
 
     @Override
     public int cantidadPasajeros() {
-        return 0;
+        return cantP;
     }
 }

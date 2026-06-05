@@ -8,39 +8,67 @@ public class Formacion {
     private int id;
 
     public Formacion() {
+        this.id = 282;
+        this.locomotoras = new ArrayList<>();
+        this.vagones = new ArrayList<>();
     }
 
-    public void getters() {
+    public Formacion(int id) {
+        this.id = id;
+        this.locomotoras = new ArrayList<>();
+        this.vagones = new ArrayList<>();
+    }
+
+    public ArrayList<Locomotora> getLocomotoras() {
+        return locomotoras;
+    }
+
+    public ArrayList<Vagon> getVagones() {
+        return vagones;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setters() {
     }
 
     public int totalPasajeros() {
-        return 0;
+        int cantidad = 0;
+        for(Vagon i : vagones){
+            i.cantidadPasajeros();
+        }
+        return cantidad;
     }
 
     public int vagonesLivianos() {
         return 0;
     }
 
-    private boolean esLiviano(Vagon v) {
-        return false;
-    }
-
     public double velocidadMaxima() {
-        return 0.0;
-    }
 
-    public double velocidadMaximaMin() {
         return 0.0;
     }
 
     public boolean esEficiente() {
-        return false;
+        for(Locomotora i : locomotoras){
+            double peso = i.getPeso();
+            if(peso * 5 <= i.getPesoMaximo() ){
+                return false;
+            }
+        }
+        return true;
     }
 
     public boolean puedeMoverse() {
+        int cont1 = 0;
+        for(Locomotora i : locomotoras){
+            cont1 += i.getPesoMaximo();
+        }
+        if(cont1 >= vagones.size()){
+            return true;
+        }
         return false;
     }
 
