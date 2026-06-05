@@ -11,11 +11,17 @@ public abstract class  Vagon {
         this.largo = largo;
         this.ancho = ancho;
     }
-
-    public void get() {
+    public double getLargo(){
+        return this.largo;
     }
-ghp_fUjXPnPB0ymHzS4THShK5GxqwSC4bOKBQ
-    public void set() {
+    public double getAncho(){
+        return this.ancho;
+    }
+    public void setLargo(double largo) {
+        this.largo = largo;
+    }
+    public void setAncho(double ancho) {
+        this.ancho = ancho;
     }
 
     public int cantidadPasajeros() {
