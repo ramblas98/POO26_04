@@ -12,7 +12,6 @@ public abstract class Lectura {
     private double calificacion; 
  
     // Constructor 
-
     public Lectura() {
     }
     
@@ -37,7 +36,7 @@ public abstract class Lectura {
         if (c > 10) c = 10;
         this.calificacion = c;
     }
- 
+    
     // Métodos abstractos
     public abstract String resumen();
  

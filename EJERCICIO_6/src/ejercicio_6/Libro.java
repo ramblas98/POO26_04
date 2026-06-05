@@ -4,10 +4,6 @@
  */
 package ejercicio_6;
 
-/**
- *
- * @author Hp
- */
-public class Libro {
-    
+public class Libro extends Lectura{
+
 }

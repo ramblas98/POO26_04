@@ -5,11 +5,11 @@
 package ejercicio_6;
 
 public class Comic extends Lectura{
+    
     private String  dibujante;
     private boolean color;
  
-    // Constructor
-    
+    // Constructores
     public Comic() {
     }
 
@@ -36,7 +36,7 @@ public class Comic extends Lectura{
     public int tiempoEstimadoLectura() {
         return getNumPaginas() / 100;
     }
- 
+    
     @Override
     public String resumen() {
         return "Comic: "      + getTitulo()
