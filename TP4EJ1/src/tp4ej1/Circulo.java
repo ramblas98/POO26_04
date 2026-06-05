@@ -22,6 +22,10 @@ public class Circulo extends Figura {
     }
     @Override
     public double area(){
-        return radio*Math.PI;
+        return Math.pow(radio, 2)*Math.PI;
+    }
+    @Override
+    public double perimetro() {
+        return 2 * Math.PI*radio;
     }
 }

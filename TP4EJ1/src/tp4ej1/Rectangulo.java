@@ -8,29 +8,25 @@ package tp4ej1;
  *
  * @author Jazmín
  */
-public class Rectangulo extends Figura {
-    private double base;
-    private double altura;
-    public Rectangulo(){}
+public class Rectangulo extends Cuadrilatero{
+    //public Rectangulo(){}
     public Rectangulo(double base, double altura){
-        this.base=base;
-        this.altura=altura;
+        super(base, altura);
     }
-    public double getBase(){
-        return base;
-    }
-    public double getAltura(){
-        return altura;
-    }
-    public void setBase(double base){
-        this.base=base;
-    }
-    public void setAltura(double altura){
-         this.altura=altura;
-    }
-    
     @Override
-    public double area(){
-        return base*altura;
-    } 
+    public double getBase(){ 
+        return super.getBase();
+    }
+    @Override
+    public double getAltura(){ 
+        return super.getAltura();
+    }
+    @Override
+    public void setBase(double base){
+        super.setBase(base);
+    }
+    @Override
+    public void setAltura(double altura){ 
+        super.setAltura(altura);
+    }
 }

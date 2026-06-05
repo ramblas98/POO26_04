@@ -11,6 +11,5 @@ package tp4ej1;
 public enum TipoT {
     EQUILATERO,
     ISOCELES,
-    ESCALENO,
-    RECTANGULO
+    ESCALENO
 }

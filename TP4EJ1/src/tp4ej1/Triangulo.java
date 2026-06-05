@@ -45,10 +45,11 @@ public class Triangulo extends Figura{
     public double area(){
         return (ladoC*this.altura())/(double)2;
     }
+    @Override
     public double perimetro(){
         return ladoA+ladoB+ladoC; 
     }
-    public TipoT tipoTriangulo(Triangulo t){
+    public TipoT tipoTriangulo(){
         if(ladoA==ladoB&&ladoA==ladoC){
             return TipoT.EQUILATERO;
         }

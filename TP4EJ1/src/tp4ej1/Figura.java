@@ -8,11 +8,19 @@ package tp4ej1;
  *
  * @author Jazmín
  */
-public class Figura {
+public class Figura{
     public Figura(){}
-    public double area(){
+    
+    /*public double area(){
         return 0;
     }
+    public double perimetro(){
+        return 0;
+    }*/
+    
+    public abstract double area();
+    public abstract double perimetro();
+    //igual=
     public boolean mismaArea(Figura f){
         return this.area()==f.area();
     }
