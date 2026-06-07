@@ -5,6 +5,8 @@ public abstract class  Vagon {
     private double ancho;
 
     public Vagon() {
+        this.largo = 2.5;
+        this.ancho = 2.5;
     }
 
     public Vagon(double largo, double ancho) {

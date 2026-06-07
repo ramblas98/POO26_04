@@ -31,7 +31,8 @@ public class Formacion {
         return id;
     }
 
-    public void setters() {
+    public void agregarLocomotora(Locomotora l){
+        this.locomotoras.add(l);
     }
 
     public int totalPasajeros() {

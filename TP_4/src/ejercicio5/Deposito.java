@@ -44,6 +44,10 @@ public class Deposito {
         this.listaLocotorasSueltas.remove(this.listaLocotorasSueltas.get(i));
     }
 
+    public void agregarFormacion(Formacion f){
+        this.listaFormaciones.add(f);
+    }
+
     public ArrayList<Vagon> cojunto() {
         ArrayList<Vagon> v=new ArrayList<>();
         for(int i=0; i<this.listaFormaciones.size(); i++){
