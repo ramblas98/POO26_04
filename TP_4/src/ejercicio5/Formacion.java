@@ -109,6 +109,15 @@ public class Formacion {
     }
 
     public Vagon vagonMasPesado(){
-
+        Vagon MvagonPesado = null;
+        for(Vagon i : vagones){
+            if(MvagonPesado == null){
+                MvagonPesado = i;
+            }
+            if(MvagonPesado.pesoMaximo() > i.pesoMaximo()){
+                MvagonPesado = i;
+            }
+        }
+        return MvagonPesado;
     }
 }

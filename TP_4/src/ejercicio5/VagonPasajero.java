@@ -32,6 +32,10 @@ public class VagonPasajero extends Vagon{
 
     @Override
     public int cantidadPasajeros() {
-        return cantP;
+        //ancho útil
+        if(super.getAncho()<=2.5){
+            return (int) ((super.getLargo()*8));
+        }
+        return (int) ((super.getLargo()*10)/1);
     }
 }
