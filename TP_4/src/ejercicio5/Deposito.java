@@ -1,6 +1,7 @@
 package ejercicio5;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Deposito {
     private ArrayList<Formacion> listaFormaciones;
@@ -74,5 +75,41 @@ public class Deposito {
                 }
             }
         }
+    }
+
+    public void mostrarListaFormacionesDetalles(){
+        for(Formacion i : listaFormaciones){
+            i.mostrarDetalles();
+        }
+    }
+
+    public void completarFormaciones(){
+        //Iterator<Formacion> f = listaFormaciones.iterator();
+        Iterator<Locomotora> l = listaLocotorasSueltas.iterator();
+        for(Formacion f : listaFormaciones){
+            if(!f.puedeMoverse()){
+                while(l.hasNext()){
+                    if(!f.puedeMoverse()){
+                        f.agregarLocomotora(l.next());
+                    }else{
+                        break;
+                    }
+                }
+            }
+        }
+        /*
+            boolean completa=false;
+            if(!f.puedeMoverse()){
+                while(!this.getListaLocotorasSueltas().isEmpty() && completa==false){
+                    for(Locomotora l : this.getListaLocotorasSueltas()){
+                        if(!f.puedeMoverse()){
+                            f.agregarLocomotora(l);
+                            completa=true;
+                        }
+                    }
+                }
+            }
+            */
+
     }
 }

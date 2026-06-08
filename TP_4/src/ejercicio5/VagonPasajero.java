@@ -3,15 +3,12 @@ package ejercicio5;
 public class VagonPasajero extends Vagon{
     private int cantP;
 
-    public VagonPasajero() {
+    public VagonPasajero(){
+        super();
     }
 
-    public VagonPasajero(int cantP) {
-        this.cantP = cantP;
-    }
-
-    public VagonPasajero(double largo, double ancho, int cantP) {
-        this.cantP = cantP;
+    public VagonPasajero(double largo, double ancho) {
+        super(largo, ancho);
     }
 
     public void getters() {
@@ -22,7 +19,7 @@ public class VagonPasajero extends Vagon{
 
     @Override
     public double pesoMaximo() {
-        return cantP*80;
+        return this.cantidadPasajeros()*80;
     }
 
     @Override

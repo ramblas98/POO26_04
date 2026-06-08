@@ -130,4 +130,20 @@ public class Formacion {
         }
         return MvagonPesado;
     }
+
+    public void mostrarDetalles(){
+        System.out.print("Cantidad de locomotoras: " + locomotoras.size());
+        System.out.print("Cantidad de vagones: " + vagones.size());
+        System.out.print("Id de la formacion: " + id);
+        System.out.println("Puede moverse?: ");
+        if (this.puedeMoverse()){
+            System.out.print("SI");
+        }
+        else{
+            System.out.print("NO");
+        }
+        System.out.println("Vagones Livianos: " + this.vagonesLivianos());
+        System.out.println("Valocidad Maxima: " + this.velocidadMaxima());
+        System.out.println("Locomotoras Eficientes?: " + this.esEficiente());
+    }
 }
