@@ -70,15 +70,24 @@ public class Deposito {
         for(Formacion f : listaFormaciones){
             System.out.println("Formacion " + c);
             f.mostrarDetalles();
-            System.out.println("Puede moverse?: ");
-            if (f.puedeMoverse()){
-                System.out.print("SI");  
-            }
-            else{
-                System.out.print("NO");  
-            }
             System.out.println();
             c++;
         }
+    }
+    public void completarFormaciones(ArrayList<Formacion> lista){
+        for(Formacion f : lista){
+            boolean completa=false;
+            if(!f.puedeMoverse()){
+                while(!this.getListaLocomotorasSueltas().isEmpty() && completa==false){
+                    for(Locomotora l : this.getListaLocomotorasSueltas()){
+                        if(!f.puedeMoverse()){
+                            f.agregarLocomotora(l);
+                            completa=true;
+                        }
+                    }
+                }
+            }
+        }
+         
     }
 }

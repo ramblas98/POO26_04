@@ -3,8 +3,8 @@ package tp4ej5;
 import java.util.ArrayList;
 
 public class Formacion {
-    private ArrayList<Locomotora> locomotoras;
-    private ArrayList<Vagon> vagones;
+    private final ArrayList<Locomotora> locomotoras;
+    private final ArrayList<Vagon> vagones;
     private int id;
 
     public Formacion() {
@@ -129,6 +129,7 @@ public class Formacion {
         System.out.print("Cantidad de locomotoras: " + locomotoras.size());
         System.out.print("Cantidad de vagones: " + vagones.size());
         System.out.print("Id de la formacion: " + id);
+        System.out.println("Total pasajeros: " + this.totalPasajeros());
         System.out.println("Puede moverse?: ");
             if (this.puedeMoverse()){
                 System.out.print("SI");  
@@ -136,6 +137,7 @@ public class Formacion {
             else{
                 System.out.print("NO");  
             }
-        }
+    }
+    
     
 }

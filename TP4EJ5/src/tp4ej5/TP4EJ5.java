@@ -23,7 +23,6 @@ public class TP4EJ5 {
         System.out.println(f1.puedeMoverse());
         
         
-        
         Formacion f2=new Formacion(2);
         d.agregarFormacion(f1);
         d.agregarFormacion(f2);
@@ -39,7 +38,8 @@ public class TP4EJ5 {
         d.agregarLocomotoraSuelta(lSuelta3);
         
 
-        System.out.println("---ESTADO FORMACIONES---");
+        System.out.println("---ESTADO FORMACIONES INICIAL---");
+        d.mostrarDetallesFormaciones();
         for (int i = 0; i < d.getListaFormaciones().size(); i++) {
             Formacion f = d.getListaFormaciones().get(i);
             System.out.println("Formacion " + i + "\n -Puede moverse?: ");
@@ -52,9 +52,52 @@ public class TP4EJ5 {
             System.out.println();
         }
         //System.out.println("Locomotoras sueltas disponibles: " + d.getListaLocotorasSueltas().size());
+        // completa las formaciones que no pueden moverse 
+        Formacion f3=new Formacion();
+        f3.agregarVagon(new VagonPasajero(1, 1));
+        f3.agregarVagon(new VagonCarga(1, 1, 30.0));
+        Locomotora la= new Locomotora(12.0, 45.0, 78.0);
+        f1.agregarLocomotora(la);
+        System.out.println("Verificacion: " + f3.puedeMoverse());
+        
+        Formacion f4=new Formacion();
+        f4.agregarVagon(new VagonPasajero(2, 1));
+        f4.agregarVagon(new VagonCarga(3, 1, 20.0));
+        Locomotora lb= new Locomotora(11.0, 35.0, 48.0);
+        f1.agregarLocomotora(lb);
+        System.out.println("Verificacion: " + f4.puedeMoverse());
         
         
-
+        Locomotora lSuelta4= new Locomotora(101.0, 350.0, 480.0);
+        d.agregarLocomotoraSuelta(lSuelta4);
+        Locomotora lSuelta5= new Locomotora(121.0, 50.0, 180.0);
+        d.agregarLocomotoraSuelta(lSuelta5);
+        Locomotora lSuelta6= new Locomotora(111.0, 150.0, 480.0);
+        d.agregarLocomotoraSuelta(lSuelta6);
+        Locomotora lSuelta7= new Locomotora(131.0, 124.0, 280.0);
+        d.agregarLocomotoraSuelta(lSuelta7);
+        
+        d.mostrarDetallesFormaciones();
+        d.completarFormaciones(d.getListaFormaciones());
+        d.mostrarDetallesFormaciones();
+        
+        
+        //Agregar locomotoras sueltas necesarias
+        /*f3.agregarLocomotora(new Locomotora(101.0, 350.0, 480.0));
+        f3.agregarLocomotora(new Locomotora(121.0, 50.0, 180.0));
+        f3.agregarLocomotora(new Locomotora(111.0, 150.0, 480.0));
+        
+ 
+        while(f3.puedeMoverse()==false){
+            
+            System.out.println("La formacion ya puede moverse");
+        }
+        
+        f4.agregarLocomotora(new Locomotora(11.0, 30.0, 480.0));
+        f4.agregarLocomotora(new Locomotora(141.0, 340.0, 330.0));
+        f4.agregarLocomotora(new Locomotora(114.0, 460.0, 50.0));*/
+        
+        
         //d.locomotoraAFormacion(lSuelta1);
         //d.locomotoraAFormacion(lSuelta2);
         //d.locomotoraAFormacion(lSuelta3);   
