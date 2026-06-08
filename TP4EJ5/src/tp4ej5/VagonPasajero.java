@@ -5,8 +5,10 @@ public class VagonPasajero extends Vagon{
 
     public VagonPasajero() {
     }
-
-    public VagonPasajero(int cantP) {
+    public VagonPasajero(double largo, double ancho) {
+        super(largo, ancho);
+    }
+    /*public VagonPasajero(int cantP) {
         this.cantP = cantP;
     }
 
@@ -15,12 +17,12 @@ public class VagonPasajero extends Vagon{
         this.cantP = cantP;
     }
 
-     public int getCantP(){
+    public int getCantP(){
         return this.cantP;
     }
     public void setCantP(int cantP) {
         this.cantP = cantP;
-    }
+    }*/
 
     @Override
     public double pesoMaximo() {
@@ -29,7 +31,7 @@ public class VagonPasajero extends Vagon{
 
     @Override
     public boolean esLiviano() {
-        return this.pesoMaximo()<25000;
+        return this.pesoMaximo()<2500;
     }
 
     @Override
@@ -38,6 +40,7 @@ public class VagonPasajero extends Vagon{
         if(super.getAncho()<=2.5){
             return (int) ((super.getLargo()*8));
         }
-        return (int) ((super.getLargo()*10)/1);
+        return (int) ((super.getLargo()*10));
     }
+    
 }

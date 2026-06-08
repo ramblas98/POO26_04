@@ -11,22 +11,25 @@ public class VagonCarga extends Vagon{
     }
 
     public VagonCarga(double largo, double ancho, double cargaMaxima) {
+        super(largo, ancho);
         this.cargaMaxima = cargaMaxima;
     }
 
-    public void getters() {
+    public double getCargaMaxima(){
+        return this.cargaMaxima;
     }
-
-    public void setters() {
+    public void setCargaMaxima(double cargaMaxima) {
+        this.cargaMaxima = cargaMaxima;
     }
 
     @Override
     public double pesoMaximo() {
-        return 0.0;
+        return this.cargaMaxima+160;
     }
-
+    //A
     @Override
     public boolean esLiviano() {
-        return false;
+        return this.pesoMaximo() < 2500;
     }
+
 }

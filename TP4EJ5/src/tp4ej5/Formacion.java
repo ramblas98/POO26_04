@@ -9,46 +9,115 @@ public class Formacion {
 
     public Formacion() {
     }
-
-    public void getters() {
+    public Formacion(int id) {
+        this.id=id;
     }
 
-    public void setters() {
+    public ArrayList<Locomotora> getLocomororas() {
+        return locomotoras;
+    }
+    public ArrayList<Vagon> getVagones() {
+        return vagones;
+    }
+    public void setAgregarLocomotora(Locomotora l) {
+        locomotoras.add(l);
+    }
+    public void setAgregarVagon(Vagon v) {
+        vagones.add(v);
     }
 
     public int totalPasajeros() {
-        return 0;
+        int t=0;
+        for(Vagon v : vagones){
+            t=t+v.cantidadPasajeros();
+        }
+        return t;
     }
 
     public int vagonesLivianos() {
-        return 0;
+        int c=0;
+        for(Vagon v : vagones){
+            if(v.esLiviano()==true){
+                c++;
+            }
+        }
+        return c;
     }
 
-    private boolean esLiviano(Vagon v) {
-        return false;
-    }
-
-    public double velocidadMaxima() {
-        return 0.0;
-    }
-
-    public double velocidadMaximaMin() {
-        return 0.0;
+    public double velocidadMaximaMin(){
+        if (locomotoras.isEmpty()){
+            return 0;
+        }
+        double m=locomotoras.getFirst().getVelocidadMaxima();
+        for(int i=1; i<locomotoras.size(); i++){
+            double aux = locomotoras.get(i).getVelocidadMaxima();
+            if(aux<m)m=aux;
+        }
+        return m;
     }
 
     public boolean esEficiente() {
-        return false;
+        for(Locomotora l : locomotoras){
+            if(l.arrastreUtil()<l.getPeso()*5){
+                return false;
+            }
+        }
+        return true;
     }
 
+    private double totalArrastreLocomotoras(){
+        double a=0;
+        for(Locomotora l : locomotoras){
+            a=a+l.arrastreUtil();
+        }
+        return a;
+    }
+    private double totalPesoMaximoVagones(){
+        double x=0;
+        for(Vagon v : vagones){
+            x=x+v.pesoMaximo();
+        }
+        return x;
+    }
+    private double totalPesoMaximoLocomotoras(){
+        double x=0;
+        for(Locomotora l : locomotoras){
+            x=x+l.getPeso();
+        }
+        return x;
+    }
+    
     public boolean puedeMoverse() {
-        return false;
+        return this.totalArrastreLocomotoras()>=
+                this.totalPesoMaximoVagones();
     }
-
+    
     public double kiloEmpujeFaltantes() {
-        return 0.0;
+        if(this.puedeMoverse()) return 0;
+        return this.totalPesoMaximoVagones()-
+                this.totalArrastreLocomotoras();
     }
 
     public boolean esCompleja() {
-        return false;
+        if(this.locomotoras.size()+this.vagones.size()>20){
+            return true;
+        }
+        return (this.totalPesoMaximoLocomotoras()+
+                this.totalPesoMaximoVagones()>10000);
+    }
+    
+    public Vagon vagonMasPesado(){
+        if (vagones.isEmpty()) return null;
+        Vagon p=vagones.get(0);
+        for(Vagon v : vagones){
+            if(v.pesoMaximo()>p.pesoMaximo()){
+                p=v;
+            }
+        }
+        return p;
+    }
+
+    public void agregarVagon(VagonPasajero vagonPasajero) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -6,7 +6,6 @@ public abstract class  Vagon {
 
     public Vagon() {
     }
-
     public Vagon(double largo, double ancho) {
         this.largo = largo;
         this.ancho = ancho;
@@ -29,6 +28,5 @@ public abstract class  Vagon {
     }
 
     public abstract double pesoMaximo();
-
     public abstract boolean esLiviano();
 }

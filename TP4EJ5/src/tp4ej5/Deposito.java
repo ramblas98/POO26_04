@@ -4,15 +4,27 @@ import java.util.ArrayList;
 
 public class Deposito {
     private ArrayList<Formacion> listaFormaciones;
-    private ArrayList<Locomotora> listaLocotorasSueltas;
+    private final ArrayList<Locomotora> listaLocomotorasSueltas;
 
     public Deposito() {
         this.listaFormaciones= new ArrayList<>();
-        this.listaLocotorasSueltas= new ArrayList<>();
+        this.listaLocomotorasSueltas= new ArrayList<>();
     }
 
     public ArrayList<Formacion> getListaFormaciones() {
         return listaFormaciones;
+    }
+    public void agregarFormacion(Formacion f) {
+        this.listaFormaciones.add(f);
+    }
+    public ArrayList<Locomotora> getListaLocomotorasSueltas() {
+        return listaLocomotorasSueltas;
+    }
+    public void agregarLocomotoraSuelta(Locomotora l){
+        this.listaLocomotorasSueltas.add(l);
+    }
+    public void eliminarLocomotoraSuelta(int i){
+        this.listaLocomotorasSueltas.remove(this.listaLocomotorasSueltas.get(i));
     }
 
     public boolean coductorExperimentado() {
@@ -25,19 +37,25 @@ public class Deposito {
         return false;
     }
 
-    public void agregarLocomotoraAFormacion(Locomotora l, int id) {
-            Formacion f=this.listaFormaciones.get(id);
-            if(f.puedeMoverse()==false){
-                
-                this.eliminarLocomotoraSuelta(id);
+    public void locomotoraAFormacion(Locomotora l, int id) {
+        Formacion f=this.listaFormaciones.get(id);
+        if (!f.puedeMoverse()){
+            int u =0;
+            boolean b=false;
+            while(u<this.listaLocomotorasSueltas.size() && b==false){
+                Locomotora ls=this.listaLocomotorasSueltas.get(u);
+                if(ls.arrastreUtil()>= f.kiloEmpujeFaltantes()){
+                    b=true;
+                    f.setAgregarLocomotora(ls);
+                    this.eliminarLocomotoraSuelta(u);
+                }
+                else{
+                    u++;
+                }
+            }
         }
     }
-    public void agregarLocomotoraSuelta(Locomotora l){
-         this.listaLocotorasSueltas.add(l);
-    }
-    public void eliminarLocomotoraSuelta(int i){
-         this.listaLocotorasSueltas.remove(this.listaLocotorasSueltas.get(i));
-    }
+   
     
     public ArrayList<Vagon> cojunto() {
         ArrayList<Vagon> v=new ArrayList<>();

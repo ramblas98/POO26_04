@@ -2,7 +2,7 @@ package ejercicio5;
 
 public class Locomotora {
     private double peso;
-    private double pesoMaximo;
+    private double pesoMaximo; //que puede arrastrar
     private double velocidadMaxima;
 
     public Locomotora() {
@@ -29,7 +29,10 @@ public class Locomotora {
     public void setPesoMaximo(double pesoMaximo) {
         this.pesoMaximo = pesoMaximo;
     }
-    public void setPesoVelocidadMaxima(double velocidadMaxima) {
+    public void setVelocidadMaxima(double velocidadMaxima) {
         this.velocidadMaxima = velocidadMaxima;
+    }
+    public double arrastreUtil(){
+        return this.getPesoMaximo()-this.peso;
     }
 }
