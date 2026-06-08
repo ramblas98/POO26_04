@@ -1,8 +1,8 @@
 package ejercicio5;
 
 public abstract class  Vagon {
-    private double largo;
-    private double ancho;
+    private final double largo;
+    private final double ancho;
 
     public Vagon() {
         this.largo = 2.5;
