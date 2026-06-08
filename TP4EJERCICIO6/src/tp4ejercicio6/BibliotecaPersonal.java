@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class BibliotecaPersonal {
     private ArrayList<Lectura> coleccion;
     
+    public BibliotecaPersonal(){}
     
     public void agregarLectura(Lectura nuevaLectura){
         for(Lectura l: coleccion){

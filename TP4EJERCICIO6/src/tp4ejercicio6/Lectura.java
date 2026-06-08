@@ -11,15 +11,15 @@ package tp4ejercicio6;
  public abstract class Lectura {
     private String titulo;
     private String autor;
-    private int numPaginas;
-    private double calificacion;
+    private int totalPaginas;
+    private int calificacion;
 
  public Lectura(){}
  
- public Lectura(String titulo, String autor,int numPagina, double calificacion){
+ public Lectura(String titulo, String autor,int totalPaginas, int calificacion){
     this.titulo = titulo;
     this.autor = autor;
-    this.numPaginas = numPagina;
+    this.totalPaginas = totalPaginas;
     this.calificacion = calificacion;
  }
  
@@ -31,11 +31,11 @@ package tp4ejercicio6;
      return this.autor;
  }
  
- public int getNumPaginas(){
-     return this.numPaginas;
+ public int getTotalPaginas(){
+     return this.totalPaginas;
  }
  
- public double getCalificacion(){
+ public int getCalificacion(){
      return this.calificacion;
  }
  
@@ -47,11 +47,11 @@ package tp4ejercicio6;
      this.autor = autor;
  }
  
- public void setNumPaginas(int numPaginas){
-     this.numPaginas = numPaginas;
+ public void setTotalPaginas(int totalPaginas){
+     this.totalPaginas = totalPaginas;
  }
  
- public void setCalificacion(double calificacion){
+ public void setCalificacion(int calificacion){
      this.calificacion = calificacion;
  }
  

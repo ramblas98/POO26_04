@@ -10,18 +10,18 @@ package tp4ejercicio6;
  */
 public class Revista extends Lectura{
     private int numEdicion;
-    private String tematica;
+    private Tematica tematica;
     
     public Revista(){
     }
     
-    public Revista(int numEdicion, String tematica){
+    public Revista(int numEdicion, Tematica tematica){
         this.numEdicion = numEdicion;
         this.tematica = tematica;
     }
     
-    public Revista(String titulo, String autor,int numPaginas,double calificacion, int numEdicion){
-        super(titulo,autor,numPaginas,calificacion);
+    public Revista(String titulo, String autor,int totalPaginas,int calificacion, int numEdicion){
+        super(titulo,autor,totalPaginas,calificacion);
         this.numEdicion= numEdicion;
     }
     
@@ -29,7 +29,7 @@ public class Revista extends Lectura{
         return this.numEdicion;
     }
     
-    public String getTematica(){
+    public Tematica getTematica(){
         return this.tematica;
     }
     
@@ -37,7 +37,7 @@ public class Revista extends Lectura{
         this.numEdicion = nuevoNumEdicion;
     }
     
-    public void setTematica(String nuevaTematica){
+    public void setTematica(Tematica nuevaTematica){
         this.tematica = nuevaTematica;
     }
     
@@ -45,7 +45,7 @@ public class Revista extends Lectura{
     public String resumen(){
         return "Titulo: "+ this.getTitulo() +
                 "Autor: " + this.getAutor() +
-                "Numero de Paginas: " + this.getNumPaginas() +
+                "Numero de Paginas: " + this.getTotalPaginas() +
                 "Calificacion: " + this.getCalificacion() +
                 "Numero de Edicion: " + this.numEdicion +
                 "Tematica: " + this.tematica;
@@ -54,7 +54,7 @@ public class Revista extends Lectura{
     
     @Override
     public int tiempoEstimadoLectura(){
-        return this.getNumPaginas() / 70;
+        return this.getTotalPaginas() / 70;
     }
 
 }//Cierre de clase
