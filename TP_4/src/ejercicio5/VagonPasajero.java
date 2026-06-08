@@ -27,7 +27,7 @@ public class VagonPasajero extends Vagon{
 
     @Override
     public boolean esLiviano() {
-        return false;
+        return this.pesoMaximo() < 2500;
     }
 
     @Override
@@ -36,6 +36,6 @@ public class VagonPasajero extends Vagon{
         if(super.getAncho()<=2.5){
             return (int) ((super.getLargo()*8));
         }
-        return (int) ((super.getLargo()*10)/1);
+        return (int) ((super.getLargo()*10));
     }
 }

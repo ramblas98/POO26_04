@@ -40,4 +40,8 @@ public class Locomotora {
     public void setVelocidadMaxima(double velocidadMaxima) {
         this.velocidadMaxima = velocidadMaxima;
     }
+
+    public double arrastreUtil(){
+        return this.getPesoMaximo() - this.peso;
+    }
 }

@@ -35,75 +35,84 @@ public class Formacion {
         this.locomotoras.add(l);
     }
 
+    public void agregarVagon(Vagon v){
+        this.vagones.add(v);
+    }
+
     public int totalPasajeros() {
         int cantidad = 0;
         for(Vagon i : vagones){
-            i.cantidadPasajeros();
+            cantidad += i.cantidadPasajeros();
         }
         return cantidad;
     }
 
     public int vagonesLivianos() {
-        return 0;
+        int c = 0;
+        for(Vagon i : vagones){
+            if(i.esLiviano()){
+                c++;
+            }
+        }
+        return c;
     }
 
     public double velocidadMaxima() {
-
-        return 0.0;
+        if (locomotoras.isEmpty()){
+            return 0;
+        }
+        double m=locomotoras.getFirst().getVelocidadMaxima();
+        for(int i=1; i<locomotoras.size(); i++){
+            double aux = locomotoras.get(i).getVelocidadMaxima();
+            if(aux<m)m=aux;
+        }
+        return m;
     }
 
     public boolean esEficiente() {
         for(Locomotora i : locomotoras){
-            double peso = i.getPeso();
-            if(peso * 5 <= i.getPesoMaximo() ){
+            if(i.arrastreUtil() < i.getPeso()*5){
                 return false;
             }
         }
         return true;
     }
 
+    private double totalArrastreLocomotoras(){
+        double a=0;
+        for(Locomotora l : locomotoras){
+            a=a+l.arrastreUtil();
+        }
+        return a;
+    }
+    private double totalPesoMaximoVagones(){
+        double x=0;
+        for(Vagon v : vagones){
+            x=x+v.pesoMaximo();
+        }
+        return x;
+    }
+    private double totalPesoMaximoLocomotoras(){
+        double x=0;
+        for(Locomotora l : locomotoras){
+            x=x+l.getPeso();
+        }
+        return x;
+    }
+
     public boolean puedeMoverse() {
-        int cont1 = 0;
-        for(Locomotora i : locomotoras){
-            cont1 += i.getPesoMaximo();
-        }
-        if(cont1 >= vagones.size()){
-            return true;
-        }
-        return false;
+        return this.totalArrastreLocomotoras() >= this.totalPesoMaximoVagones();
     }
 
     public double kiloEmpujeFaltantes() {
         if(puedeMoverse()){
             return 0.0;
         }
-        double total1 = 0.0;
-        double total2 = 0.0;
-        for(Vagon i : vagones){
-            total1 += i.pesoMaximo();
-        }
-
-        for(Locomotora i : locomotoras){
-            total2 += i.getVelocidadMaxima();
-        }
-
-        return total1 - total2;
-
+        return this.totalPesoMaximoVagones() - this.totalArrastreLocomotoras();
     }
 
     public boolean esCompleja() {
-        int suma = vagones.size() + locomotoras.size();
-
-        double totalpeso = 0;
-        for(Locomotora i : locomotoras){
-            totalpeso += i.getPeso();
-        }
-
-        for(Vagon i : vagones){
-            totalpeso += i.pesoMaximo();
-        }
-
-        if(totalpeso > 20 || suma > 20){
+        if(this.locomotoras.size() + this.vagones.size() > 20 || this.totalPesoMaximoLocomotoras() + this.totalPesoMaximoVagones() > 10000){
             return true;
         }
         return false;

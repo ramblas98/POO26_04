@@ -22,7 +22,7 @@ public class Deposito {
     public boolean coductorExperimentado() {
         for(int i=0; i<this.listaFormaciones.size(); i++){
             Formacion f=this.listaFormaciones.get(i);
-            if(f.esCompleja()==true){
+            if(f.esCompleja()){
                 return true;
             }
         }
@@ -31,7 +31,7 @@ public class Deposito {
 
     public void agregarLocomotora(Locomotora l, int id) {
         Formacion f=this.listaFormaciones.get(id);
-        if(f.puedeMoverse()==false){
+        if(!f.puedeMoverse()){
 
             this.eliminarLocomotoraSuelta(id);
         }
@@ -55,5 +55,24 @@ public class Deposito {
             v.add(f.vagonMasPesado());
         }
         return v;
+    }
+
+    public void locomotoraAFormacion(Locomotora l, int id) {
+        Formacion f=this.listaFormaciones.get(id);
+        if (!f.puedeMoverse()){
+            int u =0;
+            boolean b=false;
+            while(u<this.listaLocotorasSueltas.size() && b==false){
+                Locomotora ls=this.listaLocotorasSueltas.get(u);
+                if(ls.arrastreUtil()>= f.kiloEmpujeFaltantes()){
+                    b=true;
+                    f.agregarLocomotora(ls);
+                    this.eliminarLocomotoraSuelta(u);
+                }
+                else{
+                    u++;
+                }
+            }
+        }
     }
 }
