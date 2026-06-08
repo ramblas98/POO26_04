@@ -11,16 +11,16 @@ package tp_ej6;
 public abstract class Lectura {
     private String titulo;
     private String autor;
-    private int numPaginas;
+    private int totalPaginas;
     private double calificacion;
 
     public Lectura() {
     }
 
-    public Lectura(String titulo, String autor, int numPaginas, double calificacion) {
+    public Lectura(String titulo, String autor, int totalPaginas, double calificacion) {
         this.titulo = titulo;
         this.autor = autor;
-        this.numPaginas = numPaginas;
+        this.totalPaginas = totalPaginas;
         this.calificacion = calificacion;
     }
 
@@ -32,8 +32,8 @@ public abstract class Lectura {
         return autor;
     }
 
-    public int getNumPaginas() {
-        return numPaginas;
+    public int getTotalPaginas() {
+        return totalPaginas;
     }
 
     public double getCalificacion() {
@@ -48,8 +48,8 @@ public abstract class Lectura {
         this.autor = autor;
     }
 
-    public void setNumPaginas(int numPaginas) {
-        this.numPaginas = numPaginas;
+    public void setTotalPaginas(int totalPaginas) {
+        this.totalPaginas = totalPaginas;
     }
 
     public void setCalificacion(double calificacion) {

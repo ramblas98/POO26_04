@@ -35,6 +35,6 @@ public class Revista extends Lectura {
     
     @Override
     public int tiempoEstimadoLectura(){
-        return getNumPaginas()/70;
+        return getTotalPaginas()/70;
     }
 }

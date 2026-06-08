@@ -9,11 +9,11 @@ package tp_ej6;
  * @author alumno
  */
 public class Libro extends Lectura{
-    private String genero;
+    private Genero genero;
     private int anioPublicacion;
 
-    public Libro(String titulo, String autor, int numPaginas, double calificacion, String genero, int anioPublicacion) {
-        super(titulo, autor, numPaginas, calificacion);
+    public Libro(String titulo, String autor, int totalPaginas, double calificacion, Genero genero, int anioPublicacion) {
+        super(titulo, autor, totalPaginas, calificacion);
         this.genero = genero;
         this.anioPublicacion = anioPublicacion;
     }
@@ -21,14 +21,14 @@ public class Libro extends Lectura{
     public Libro() {
     }
 
-    public Libro(String genero, int anioPublicacion) {
+    public Libro(Genero genero, int anioPublicacion) {
         this.genero = genero;
         this.anioPublicacion = anioPublicacion;
     }
 
     
 
-    public String getGenero() {
+    public Genero getGenero() {
         return genero;
     }
 
@@ -36,7 +36,7 @@ public class Libro extends Lectura{
         return anioPublicacion;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
 
@@ -62,6 +62,6 @@ public class Libro extends Lectura{
     
     @Override
     public int tiempoEstimadoLectura(){
-        return getNumPaginas()/50; 
+        return getTotalPaginas()/50; 
     }
 }
