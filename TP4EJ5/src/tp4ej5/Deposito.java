@@ -1,9 +1,9 @@
-package ejercicio5;
+package tp4ej5;
 
 import java.util.ArrayList;
 
 public class Deposito {
-    private ArrayList<Formacion> listaFormaciones;
+    private final ArrayList<Formacion> listaFormaciones;
     private final ArrayList<Locomotora> listaLocomotorasSueltas;
 
     public Deposito() {
@@ -46,7 +46,7 @@ public class Deposito {
                 Locomotora ls=this.listaLocomotorasSueltas.get(u);
                 if(ls.arrastreUtil()>= f.kiloEmpujeFaltantes()){
                     b=true;
-                    f.setAgregarLocomotora(ls);
+                    f.agregarLocomotora(ls);
                     this.eliminarLocomotoraSuelta(u);
                 }
                 else{
@@ -64,5 +64,21 @@ public class Deposito {
             v.add(f.vagonMasPesado());
         }
         return v;
+    }
+    public void mostrarDetallesFormaciones(){
+        int c=0;
+        for(Formacion f : listaFormaciones){
+            System.out.println("Formacion " + c);
+            f.mostrarDetalles();
+            System.out.println("Puede moverse?: ");
+            if (f.puedeMoverse()){
+                System.out.print("SI");  
+            }
+            else{
+                System.out.print("NO");  
+            }
+            System.out.println();
+            c++;
+        }
     }
 }

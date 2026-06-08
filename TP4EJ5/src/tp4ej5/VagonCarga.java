@@ -1,4 +1,4 @@
-package ejercicio5;
+package tp4ej5;
 
 public class VagonCarga extends Vagon{
     private double cargaMaxima;

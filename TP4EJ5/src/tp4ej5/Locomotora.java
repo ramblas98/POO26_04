@@ -1,4 +1,4 @@
-package ejercicio5;
+package tp4ej5;
 
 public class Locomotora {
     private double peso;

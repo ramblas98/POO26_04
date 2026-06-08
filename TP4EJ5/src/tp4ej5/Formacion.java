@@ -1,4 +1,4 @@
-package ejercicio5;
+package tp4ej5;
 
 import java.util.ArrayList;
 
@@ -8,22 +8,28 @@ public class Formacion {
     private int id;
 
     public Formacion() {
+        this.locomotoras= new ArrayList<>();
+        this.vagones= new ArrayList<>();
     }
     public Formacion(int id) {
         this.id=id;
+        this.locomotoras= new ArrayList<>();
+        this.vagones= new ArrayList<>();
     }
-
-    public ArrayList<Locomotora> getLocomororas() {
+    public int getId(){
+        return id;
+    }
+    public ArrayList<Locomotora> getLocomotoras() {
         return locomotoras;
     }
     public ArrayList<Vagon> getVagones() {
         return vagones;
     }
-    public void setAgregarLocomotora(Locomotora l) {
+    public void agregarLocomotora(Locomotora l) {
         locomotoras.add(l);
     }
-    public void setAgregarVagon(Vagon v) {
-        vagones.add(v);
+    public void agregarVagon(Vagon v) {
+        this.vagones.add(v);
     }
 
     public int totalPasajeros() {
@@ -107,17 +113,29 @@ public class Formacion {
     }
     
     public Vagon vagonMasPesado(){
-        if (vagones.isEmpty()) return null;
-        Vagon p=vagones.get(0);
-        for(Vagon v : vagones){
-            if(v.pesoMaximo()>p.pesoMaximo()){
-                p=v;
+        Vagon MvagonPesado = null;
+        for(Vagon i : vagones){
+            if(MvagonPesado == null){
+                MvagonPesado = i;
+            }
+            if(MvagonPesado.pesoMaximo() > i.pesoMaximo()){
+                MvagonPesado = i;
             }
         }
-        return p;
+        return MvagonPesado;
     }
-
-    public void agregarVagon(VagonPasajero vagonPasajero) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
+    public void mostrarDetalles(){
+        System.out.print("Cantidad de locomotoras: " + locomotoras.size());
+        System.out.print("Cantidad de vagones: " + vagones.size());
+        System.out.print("Id de la formacion: " + id);
+        System.out.println("Puede moverse?: ");
+            if (this.puedeMoverse()){
+                System.out.print("SI");  
+            }
+            else{
+                System.out.print("NO");  
+            }
+        }
+    
 }

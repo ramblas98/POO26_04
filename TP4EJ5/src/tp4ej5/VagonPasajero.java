@@ -1,8 +1,6 @@
-package ejercicio5;
+package tp4ej5;
 
 public class VagonPasajero extends Vagon{
-    private int cantP;
-
     public VagonPasajero() {
     }
     public VagonPasajero(double largo, double ancho) {
