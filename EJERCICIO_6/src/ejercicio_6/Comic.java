@@ -18,8 +18,8 @@ public class Comic extends Lectura{
         this.color = color;
     }
     
-    public Comic(String titulo, String autor, int numPaginas, double calificacion, String dibujante, boolean color) {
-        super(titulo, autor, numPaginas, calificacion);
+    public Comic(String titulo, String autor, int totalPaginas, int calificacion, String dibujante, boolean color) {
+        super(titulo, autor, totalPaginas, calificacion);
         this.dibujante = dibujante;
         this.color     = color;
     }
@@ -28,20 +28,21 @@ public class Comic extends Lectura{
     public String  getDibujante()           { return dibujante; }
     public void    setDibujante(String d)   { this.dibujante = d; }
  
-    public boolean getColor()          { return color; }
-    public void  isColor(boolean c)    { this.color = c; }
+    public boolean isColor()          { return color; }
+    public void setAcolor()     { this.color = true; }
+    public void setBlacoYNegro() { this.color = false; }
  
     // Métodos abstractos implementados
     @Override
     public int tiempoEstimadoLectura() {
-        return getNumPaginas() / 100;
+        return getTotalPaginas() / 100;
     }
     
     @Override
     public String resumen() {
         return "Comic: "      + getTitulo()
              + " | Autor: "   + getAutor()
-             + " | Páginas: " + getNumPaginas()
+             + " | Páginas: " + getTotalPaginas()
              + " | Calificación: " + getCalificacion()
              + " | Dibujante: "    + dibujante
              + " | Color: "        + (color ? "True" : "False");

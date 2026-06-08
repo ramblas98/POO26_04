@@ -4,34 +4,34 @@
  */
 package ejercicio_6;
 
-public abstract class Lectura {
+public abstract class Lectura{
     
     private String titulo;
     private String autor;
-    private int    numPaginas;
-    private double calificacion; 
+    private int    totalPaginas;
+    private int calificacion; 
  
     // Constructor 
     public Lectura() {
     }
     
-    public Lectura(String titulo, String autor, int numPaginas, double calificacion) {
+    public Lectura(String titulo, String autor, int totalPagina, int calificacion) {
         this.titulo       = titulo;
         this.autor        = autor;
-        this.numPaginas   = numPaginas;
+        this.totalPaginas   = totalPagina;
         setCalificacion(calificacion);
     }
  
     // Getters y setters 
     public String getTitulo()             { return titulo; }
     public String getAutor()              { return autor; }
-    public int getNumPaginas()            { return numPaginas; }
-    public double getCalificacion()       { return calificacion; }
+    public int getTotalPaginas()            { return totalPaginas; }
+    public int getCalificacion()       { return calificacion; }
     
     public void setTitulo(String t)       { this.titulo = t; }
     public void setAutor(String a)        { this.autor = a; }
-    public void setNumPaginas(int n)      { this.numPaginas = n; }
-    public void setCalificacion(double c) {
+    public void setTotalPagina(int n)      { this.totalPaginas = n; }
+    public void setCalificacion(int c) {
         if (c < 0)  c = 0;
         if (c > 10) c = 10;
         this.calificacion = c;
