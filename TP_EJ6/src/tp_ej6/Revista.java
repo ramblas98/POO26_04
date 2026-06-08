@@ -17,18 +17,19 @@ public class Revista extends Lectura {
         this.tematica = tematica;
     }
 
-    public Revista(int numEdicion, Tematica tematica, String titulo, String autor, int numPaginas, double calificacion) {
-        super(titulo, autor, numPaginas, calificacion);
-        this.numEdicion = numEdicion;
-        this.tematica = tematica;
+     public Revista(String titulo, String autor,int totalPaginas,int calificacion, int numEdicion){
+        super(titulo,autor,totalPaginas,calificacion);
+        this.numEdicion= numEdicion;
     }
 
     @Override
     public String resumen(){
-        return "Temartica: " + tematica +
-                "Numero de edicion: " + numEdicion +
-                "Titulo: " + getTitulo() +
-                "Calificacion: " + getCalificacion() +
+        return "Titulo: "+ this.getTitulo() +
+                "Autor: " + this.getAutor() +
+                "Numero de Paginas: " + this.getTotalPaginas() +
+                "Calificacion: " + this.getCalificacion() +
+                "Numero de Edicion: " + this.numEdicion +
+                "Tematica: " + this.tematica;
                 
     }
     
