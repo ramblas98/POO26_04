@@ -10,12 +10,12 @@ package tp4ejercicio6;
  */
 public class Revista extends Lectura{
     private int numEdicion;
-    private Tematica tematica;
+    private String tematica;
     
     public Revista(){
     }
     
-    public Revista(int numEdicion, Tematica tematica){
+    public Revista(int numEdicion, String tematica){
         this.numEdicion = numEdicion;
         this.tematica = tematica;
     }
@@ -29,7 +29,7 @@ public class Revista extends Lectura{
         return this.numEdicion;
     }
     
-    public Tematica getTematica(){
+    public String getTematica(){
         return this.tematica;
     }
     
@@ -37,7 +37,7 @@ public class Revista extends Lectura{
         this.numEdicion = nuevoNumEdicion;
     }
     
-    public void setTematica(Tematica nuevaTematica){
+    public void setTematica(String nuevaTematica){
         this.tematica = nuevaTematica;
     }
     
@@ -56,7 +56,5 @@ public class Revista extends Lectura{
     public int tiempoEstimadoLectura(){
         return this.getNumPaginas() / 70;
     }
-    
-    
-    
+
 }//Cierre de clase
