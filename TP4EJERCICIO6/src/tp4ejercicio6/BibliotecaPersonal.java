@@ -31,7 +31,6 @@ public class BibliotecaPersonal {
                 encont = coleccion.remove(l);
                 System.out.println("Lectura elimminada");
                 break;
-//System.out.println(coleccion.remove(l) ? "Lectura eliminada" : "No existe esta Lectura");
             }
         }
         if(encont == false) System.out.println("El titulo " + titulo + "no existe");
