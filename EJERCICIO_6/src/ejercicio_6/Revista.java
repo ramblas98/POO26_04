@@ -5,25 +5,25 @@
 package ejercicio_6;
 
 public class Revista extends Lectura{
-    private int numEdicion;
+    private int numeroEdicion;
     private Tematica tematica;
     
     public Revista(){
     }
     
-    public Revista(int numEdicion, Tematica tematica){
-        this.numEdicion = numEdicion;
+    public Revista(int numeroEdicion, Tematica tematica){
+        this.numeroEdicion = numeroEdicion;
         this.tematica = tematica;
     }
     
-    public Revista(String titulo, String autor,int totalPaginas,int calificacion, int numEdicion){
+    public Revista(String titulo, String autor,int totalPaginas,int calificacion, int numeroEdicion, Tematica tematica){
         super(titulo,autor,totalPaginas,calificacion);
-        this.numEdicion = numEdicion;
+        this.numeroEdicion = numeroEdicion;
         this.tematica = tematica;
     }
     
     public int getNumEdicion(){
-        return this.numEdicion;
+        return this.numeroEdicion;
     }
     
     public Tematica getTematica(){
@@ -31,7 +31,7 @@ public class Revista extends Lectura{
     }
     
     public void setNumEdicion(int nuevoNumEdicion){
-        this.numEdicion = nuevoNumEdicion;
+        this.numeroEdicion = nuevoNumEdicion;
     }
     
     public void setTematica(Tematica nuevaTematica){
@@ -44,7 +44,7 @@ public class Revista extends Lectura{
                 "Autor: " + this.getAutor() +
                 "Numero de Paginas: " + this.getTotalPaginas() +
                 "Calificacion: " + this.getCalificacion() +
-                "Numero de Edicion: " + this.numEdicion +
+                "Numero de Edicion: " + this.numeroEdicion +
                 "Tematica: " + this.tematica;
     }
     

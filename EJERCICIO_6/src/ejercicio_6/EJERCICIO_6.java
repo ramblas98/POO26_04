@@ -12,11 +12,19 @@ public class EJERCICIO_6 {
         BibliotecaPersonal biblioteca = new BibliotecaPersonal();
  
         // ── Crear instancias ─────────────────────────────────────────────────
-        Libro   libro1  = new Libro("Los Tres mosqueteros", "Gabriel García Márquez",471, 9, "Realismo mágico", 1967);
-        Libro   libro2  = new Libro("Principito", "Luis ",480, 8, "", 2008);
-        Comic   comic1  = new Comic("Une Pice", "Art Spiegelman", 296, 9,"Art Spiegelman", false);
-        Comic   comic2  = new Comic("", "Alan Moore", 416, 9,"Dave Gibbons", false);
-        Revista revista1 = new Revista("Genio", "Varios autores",140, 7, 482, "Ciencia y naturaleza");
+        Libro   libro1  = new Libro("Los Tres mosqueteros", "Alexandre Dumas",576, 5, Genero.OTROS, 1844);
+        Libro   libro2  = new Libro("Principito", "Antoine de Saint-Exupéry ",96, 10, Genero.OTROS, 1943);
+        Libro   libro3  = new Libro("Cien años de soledad", "Gabriel Garcia Marquez",496, 5, Genero.NOVELA, 1967);
+        Comic   comic1  = new Comic("One Pice", "Eiichiro Oda", 22800, 10,"Eiichiro Oda", false);
+        Comic   comic2  = new Comic("Watchmen", "Alan Moore", 416, 10,"Dave Gibbons", true);
+        Revista revista1 = new Revista("Genio", "Varios autores",140, 7, 482, Tematica.ACTUALIDAD);
+        
+        biblioteca.agregarLectura(libro1);
+        biblioteca.agregarLectura(libro2);
+        biblioteca.agregarLectura(libro3);
+        biblioteca.agregarLectura(comic1);
+        biblioteca.agregarLectura(comic2);
+        biblioteca.agregarLectura(revista1);
     }
-    
+
 }

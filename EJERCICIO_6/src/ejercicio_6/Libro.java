@@ -8,7 +8,7 @@ public class Libro extends Lectura{
     private Genero genero;
     private int anioPublicacion;
 
-    public Libro(String titulo, String autor, int totalPaginas, int calificacion, Geneto genero, int anioPublicacion) {
+    public Libro(String titulo, String autor, int totalPaginas, int calificacion,Genero genero, int anioPublicacion) {
         super(titulo, autor, totalPaginas, calificacion);
         this.genero = genero;
         this.anioPublicacion = anioPublicacion;
@@ -17,14 +17,14 @@ public class Libro extends Lectura{
     public Libro() {
     }
 
-    public Libro(String genero, int anioPublicacion) {
+    public Libro(Genero genero, int anioPublicacion) {
         this.genero = genero;
         this.anioPublicacion = anioPublicacion;
     }
 
     
 
-    public String getGenero() {
+    public Genero getGenero() {
         return genero;
     }
 
@@ -32,7 +32,7 @@ public class Libro extends Lectura{
         return anioPublicacion;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
 

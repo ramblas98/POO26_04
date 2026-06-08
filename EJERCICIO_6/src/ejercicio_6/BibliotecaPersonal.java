@@ -14,11 +14,11 @@ public class BibliotecaPersonal {
     }
     
     // 1. Agregar
-    public void agregar(Lectura lectura) {
+    public void agregarLectura(Lectura lectura) {
     for (Lectura l : coleccion) {
         if (l.getTitulo().equalsIgnoreCase(lectura.getTitulo())) {
             System.out.println("Ya existe una lectura con el titulo: " + lectura.getTitulo());
-            break;
+            return;
         }
     }
     coleccion.add(lectura);
@@ -26,30 +26,43 @@ public class BibliotecaPersonal {
     }
     
     // 2. Elimanr
-    public boolean eliminarPorTitulo(String titulo) {
-        return coleccion.removeIf(l -> l.getTitulo().equalsIgnoreCase(titulo));
+    public void eliminarPorTitulo(String titulo) {
+        boolean eliminado = coleccion.removeIf(l -> l.getTitulo().equalsIgnoreCase(titulo));
+        if (eliminado) {
+            System.out.println("Eliminada: " + titulo );
+        } else {
+            System.out.println("No se encontró ninguna obra con el título: " + titulo );
+        }
     }
     
     public int eliminarPorAutor(String autor) {
         int antes = coleccion.size();
         coleccion.removeIf(l -> l.getAutor().equalsIgnoreCase(autor));
-        return antes - coleccion.size();
+        int eliminados = antes - coleccion.size();
+        if (eliminados > 0) {
+            System.out.println("Eliminadas " + eliminados + " obra(s) del autor: " + autor );
+        } else {
+            System.out.println("No se encontró ninguna obra del autor: " + autor );
+        }
+        return eliminados;
     }
     
     // 3. Mayor y menor calificación 
     public Lectura getMayorCalificacion() {
         if (coleccion.isEmpty()) return null;
         Lectura mejor = coleccion.get(0);
-        for (Lectura l : coleccion)
+        for (Lectura l : coleccion){
             if (l.getCalificacion() > mejor.getCalificacion()) mejor = l;
+        }
         return mejor;
     }
     
     public Lectura getMenorCalificacion() {
         if (coleccion.isEmpty()) return null;
         Lectura peor = coleccion.get(0);
-        for (Lectura l : coleccion)
+        for (Lectura l : coleccion){
             if (l.getCalificacion() < peor.getCalificacion()) peor = l;
+        }
         return peor;
     }
     
@@ -68,8 +81,9 @@ public class BibliotecaPersonal {
     //5. Tiempo total estimado 
     public int tiempoTotalEstimado() {
         int total = 0;
-        for (Lectura l : coleccion)
+        for (Lectura l : coleccion){
             total += l.tiempoEstimadoLectura();
+        }
         return total;
     }
 }
