@@ -40,12 +40,12 @@ public class Revista extends Lectura{
     
     @Override
     public String resumen(){
-        return "Titulo: "+ this.getTitulo() +
-                "Autor: " + this.getAutor() +
-                "Numero de Paginas: " + this.getTotalPaginas() +
-                "Calificacion: " + this.getCalificacion() +
-                "Numero de Edicion: " + this.numeroEdicion +
-                "Tematica: " + this.tematica;
+        return "| Revista: "+ this.getTitulo() +
+                "| Autor: " + this.getAutor() +
+                "| Numero de Paginas: " + this.getTotalPaginas() +
+                "| Calificacion: " + this.getCalificacion() +
+                "| Numero de Edicion: " + this.numeroEdicion +
+                "| Tematica: " + this.tematica;
     }
     
     

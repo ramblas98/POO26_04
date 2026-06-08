@@ -40,10 +40,10 @@ public class Comic extends Lectura{
     
     @Override
     public String resumen() {
-        return "Comic: "      + getTitulo()
+        return "| Comic: "      + getTitulo()
              + " | Autor: "   + getAutor()
-             + " | Páginas: " + getTotalPaginas()
-             + " | Calificación: " + getCalificacion()
+             + " | Paginas: " + getTotalPaginas()
+             + " | Calificacion: " + getCalificacion()
              + " | Dibujante: "    + dibujante
              + " | Color: "        + (color ? "True" : "False");
     }

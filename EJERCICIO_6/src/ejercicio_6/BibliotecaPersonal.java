@@ -31,7 +31,7 @@ public class BibliotecaPersonal {
         if (eliminado) {
             System.out.println("Eliminada: " + titulo );
         } else {
-            System.out.println("No se encontró ninguna obra con el título: " + titulo );
+            System.out.println("No se encontro ninguna obra con el titulo: " + titulo );
         }
     }
     
@@ -69,7 +69,7 @@ public class BibliotecaPersonal {
     // 4. Resumen general
     public void mostrarResumenGeneral() {
         if (coleccion.isEmpty()) {
-            System.out.println("La biblioteca está vacía.");
+            System.out.println("La biblioteca esta vacia.");
             return;
         }
         System.out.println(" BIBLIOTECA PERSONAL ");

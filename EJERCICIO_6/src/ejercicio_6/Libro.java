@@ -48,12 +48,12 @@ public class Libro extends Lectura{
         }
         else clasico= "NO";
         
-        return "Libro: " + getTitulo() +
-               "Autor: " + getAutor() +
-               "Genero: " + genero +
-               "Año: " + anioPublicacion +
-               "Clasico: " + clasico +
-               "Calificacion: " + getCalificacion(); 
+        return "| Libro: " + getTitulo() +
+               "| Autor: " + getAutor() +
+               "|Genero: " + genero +
+               "| Anio: " + anioPublicacion +
+               "|Clasico: " + clasico +
+               "| Calificacion: " + getCalificacion(); 
     }
     
     @Override
