@@ -53,7 +53,7 @@ public class main {
         System.out.println(f1.puedeMoverse());
 
 
-        Formacion f2=new Formacion(2);
+        Formacion f2=new Formacion();
         d.agregarFormacion(f1);
         d.agregarFormacion(f2);
 
@@ -74,10 +74,10 @@ public class main {
             Formacion f = d.getListaFormacion().get(i);
             System.out.println("Formacion " + i + "\n -Puede moverse?: ");
             if (f.puedeMoverse()){
-                System.out.print("SI");
+                System.out.println("SI");
             }
             else{
-                System.out.print("NO");
+                System.out.println("NO");
             }
             System.out.println();
         }
@@ -108,14 +108,19 @@ public class main {
         Locomotora lSuelta7= new Locomotora(131.0, 124.0, 280.0);
         d.agregarLocomotoraSuelta(lSuelta7);
 
+        System.out.println("\n---ESTADO FORMACIONES INICIAL---");
         d.mostrarListaFormacionesDetalles();
-        System.out.println("------");
-        d.completarFormaciones();
-        System.out.println("------");
-        d.mostrarListaFormacionesDetalles();
+        System.out.println("\nLocomotoras sueltas en el deposito: " + d.getListaLocotorasSueltas().size());
 
-        System.out.println("Verificacion: " + f3.puedeMoverse());
-        System.out.println("Verificacion: " + f4.puedeMoverse());
+        System.out.println("\nCompletar formaciones que no pueden moverwse");
+        d.completarFormaciones();
+
+        System.out.println("\n---ESTADO FORMACIONES FINAL---");
+        d.mostrarListaFormacionesDetalles();
+        System.out.println("Locomotoras sueltas en el deposito: " + d.getListaLocotorasSueltas().size());
+
+        //System.out.println("Verificacion: " + f3.puedeMoverse());
+        //System.out.println("Verificacion: " + f4.puedeMoverse());
         //Agregar locomotoras sueltas necesarias
         /*f3.agregarLocomotora(new Locomotora(101.0, 350.0, 480.0));
         f3.agregarLocomotora(new Locomotora(121.0, 50.0, 180.0));

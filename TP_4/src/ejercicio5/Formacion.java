@@ -5,16 +5,8 @@ import java.util.ArrayList;
 public class Formacion {
     private ArrayList<Locomotora> locomotoras;
     private ArrayList<Vagon> vagones;
-    private int id;
 
     public Formacion() {
-        this.id = 282;
-        this.locomotoras = new ArrayList<>();
-        this.vagones = new ArrayList<>();
-    }
-
-    public Formacion(int id) {
-        this.id = id;
         this.locomotoras = new ArrayList<>();
         this.vagones = new ArrayList<>();
     }
@@ -25,10 +17,6 @@ public class Formacion {
 
     public ArrayList<Vagon> getVagones() {
         return vagones;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public void agregarLocomotora(Locomotora l){
@@ -124,7 +112,7 @@ public class Formacion {
             if(MvagonPesado == null){
                 MvagonPesado = i;
             }
-            if(MvagonPesado.pesoMaximo() > i.pesoMaximo()){
+            if(MvagonPesado.pesoMaximo() < i.pesoMaximo()){
                 MvagonPesado = i;
             }
         }
@@ -132,18 +120,18 @@ public class Formacion {
     }
 
     public void mostrarDetalles(){
-        System.out.print("Cantidad de locomotoras: " + locomotoras.size());
-        System.out.print("Cantidad de vagones: " + vagones.size());
-        System.out.print("Id de la formacion: " + id);
+        System.out.println("Cantidad de locomotoras: " + locomotoras.size());
+        System.out.println("Cantidad de vagones: " + vagones.size());
         System.out.println("Puede moverse?: ");
         if (this.puedeMoverse()){
-            System.out.print("SI");
+            System.out.println("SI");
         }
         else{
-            System.out.print("NO");
+            System.out.println("NO");
         }
         System.out.println("Vagones Livianos: " + this.vagonesLivianos());
         System.out.println("Valocidad Maxima: " + this.velocidadMaxima());
         System.out.println("Locomotoras Eficientes?: " + this.esEficiente());
+        System.out.println(" ");
     }
 }

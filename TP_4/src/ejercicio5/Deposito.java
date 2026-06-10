@@ -58,7 +58,25 @@ public class Deposito {
         return v;
     }
 
-    public void locomotoraAFormacion(Locomotora l, int id) {
+    public void locomotoraAFormacion(int i) {
+        Formacion f=this.listaFormaciones.get(i);
+        if (!f.puedeMoverse()){
+            int u =0;
+            boolean b=false;
+            while(u<this.listaLocotorasSueltas.size() && b==false){
+                Locomotora ls=this.listaLocotorasSueltas.get(u);
+                if(ls.arrastreUtil()>= f.kiloEmpujeFaltantes()){
+                    b=true;
+                    f.agregarLocomotora(ls);
+                    this.eliminarLocomotoraSuelta(u);
+                }
+                else{
+                    u++;
+                }
+            }
+        }
+
+        /*
         Formacion f=this.listaFormaciones.get(id);
         if (!f.puedeMoverse()){
             int u =0;
@@ -75,6 +93,7 @@ public class Deposito {
                 }
             }
         }
+         */
     }
 
     public void mostrarListaFormacionesDetalles(){
@@ -85,6 +104,10 @@ public class Deposito {
 
     public void completarFormaciones(){
         //Iterator<Formacion> f = listaFormaciones.iterator();
+        for(int i=0 ; i<this.getListaFormacion().size() ; i++){
+            this.locomotoraAFormacion(i);
+        }
+        /*
         Iterator<Locomotora> l = listaLocotorasSueltas.iterator();
         for(Formacion f : listaFormaciones){
             if(!f.puedeMoverse()){
@@ -97,6 +120,7 @@ public class Deposito {
                 }
             }
         }
+         */
         /*
             boolean completa=false;
             if(!f.puedeMoverse()){

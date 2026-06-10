@@ -1,8 +1,6 @@
 package ejercicio5;
 
 public class VagonPasajero extends Vagon{
-    private int cantP;
-
     public VagonPasajero(){
         super();
     }
