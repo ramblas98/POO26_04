@@ -5,19 +5,10 @@ import java.util.ArrayList;
 public class Formacion {
     private final ArrayList<Locomotora> locomotoras;
     private final ArrayList<Vagon> vagones;
-    private int id;
 
     public Formacion() {
         this.locomotoras= new ArrayList<>();
         this.vagones= new ArrayList<>();
-    }
-    public Formacion(int id) {
-        this.id=id;
-        this.locomotoras= new ArrayList<>();
-        this.vagones= new ArrayList<>();
-    }
-    public int getId(){
-        return id;
     }
     public ArrayList<Locomotora> getLocomotoras() {
         return locomotoras;
@@ -64,7 +55,7 @@ public class Formacion {
 
     public boolean esEficiente() {
         for(Locomotora l : locomotoras){
-            if(l.arrastreUtil()<l.getPeso()*5){
+            if(l.getPesoMaximo()<l.getPeso()*5){//-----------
                 return false;
             }
         }
@@ -118,7 +109,7 @@ public class Formacion {
             if(MvagonPesado == null){
                 MvagonPesado = i;
             }
-            if(MvagonPesado.pesoMaximo() > i.pesoMaximo()){
+            if(MvagonPesado.pesoMaximo() < i.pesoMaximo()){
                 MvagonPesado = i;
             }
         }
@@ -126,18 +117,16 @@ public class Formacion {
     }
     
     public void mostrarDetalles(){
-        System.out.print("Cantidad de locomotoras: " + locomotoras.size());
-        System.out.print("Cantidad de vagones: " + vagones.size());
-        System.out.print("Id de la formacion: " + id);
+        System.out.println("Cantidad de locomotoras: " + locomotoras.size());
+        System.out.println("Cantidad de vagones: " + vagones.size());
         System.out.println("Total pasajeros: " + this.totalPasajeros());
         System.out.println("Puede moverse?: ");
-            if (this.puedeMoverse()){
-                System.out.print("SI");  
-            }
-            else{
-                System.out.print("NO");  
-            }
+        if (this.puedeMoverse()){
+            System.out.print(" SI");
+        }
+        else{
+            System.out.print(" NO");
+        }
+        System.out.print("");
     }
-    
-    
 }

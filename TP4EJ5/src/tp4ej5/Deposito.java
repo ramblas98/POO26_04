@@ -24,7 +24,7 @@ public class Deposito {
         this.listaLocomotorasSueltas.add(l);
     }
     public void eliminarLocomotoraSuelta(int i){
-        this.listaLocomotorasSueltas.remove(this.listaLocomotorasSueltas.get(i));
+        this.listaLocomotorasSueltas.remove(i);
     }
 
     public boolean coductorExperimentado() {
@@ -37,8 +37,8 @@ public class Deposito {
         return false;
     }
 
-    public void locomotoraAFormacion(Locomotora l, int id) {
-        Formacion f=this.listaFormaciones.get(id);
+    public void locomotoraAFormacion(int i) {
+        Formacion f=this.listaFormaciones.get(i);
         if (!f.puedeMoverse()){
             int u =0;
             boolean b=false;
@@ -55,7 +55,6 @@ public class Deposito {
             }
         }
     }
-   
     
     public ArrayList<Vagon> cojunto() {
         ArrayList<Vagon> v=new ArrayList<>();
@@ -66,28 +65,33 @@ public class Deposito {
         return v;
     }
     public void mostrarDetallesFormaciones(){
-        int c=0;
+        int c=1;
         for(Formacion f : listaFormaciones){
-            System.out.println("Formacion " + c);
+            System.out.println("\nFormacion " + c);
             f.mostrarDetalles();
             System.out.println();
             c++;
         }
     }
-    public void completarFormaciones(ArrayList<Formacion> lista){
-        for(Formacion f : lista){
-            boolean completa=false;
+    //--------------
+    public void completarFormaciones(){
+        for(int i=0 ; i<this.getListaFormaciones().size() ; i++){
+            this.locomotoraAFormacion(i);
+        }
+        
+        /*for(Formacion f : this.getListaFormaciones()){
             if(!f.puedeMoverse()){
+                boolean completa=false;
                 while(!this.getListaLocomotorasSueltas().isEmpty() && completa==false){
                     for(Locomotora l : this.getListaLocomotorasSueltas()){
                         if(!f.puedeMoverse()){
                             f.agregarLocomotora(l);
                             completa=true;
+                            System.out.println("Formacion completada");
                         }
                     }
                 }
             }
-        }
-         
+        }*/
     }
 }
