@@ -24,7 +24,7 @@ public class Comic extends Lectura {
     public Comic(String titulo, String autor, int totalPaginas, int calificacion, String dibujante, boolean color) {
         super(titulo, autor, totalPaginas, calificacion);
         this.dibujante = dibujante;
-        this.color     = color;
+        this.color = color;
     }
  
     // Getters y setters específicos
@@ -45,8 +45,8 @@ public class Comic extends Lectura {
     public String resumen() {
         return "Comic: "      + getTitulo()
              + " | Autor: "   + getAutor()
-             + " | Páginas: " + getTotalPaginas()
-             + " | Calificación: " + getCalificacion()
+             + " | Paginas: " + getTotalPaginas()
+             + " | Calificacion: " + getCalificacion()
              + " | Dibujante: "    + dibujante
              + " | Color: "        + (color ? "True" : "False");
     }

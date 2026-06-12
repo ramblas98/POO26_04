@@ -9,19 +9,24 @@ import java.util.ArrayList;
  * @author Pc
  */
 public class BibliotecaPersonal {
-    private ArrayList<Lectura> coleccion;
+    private ArrayList<Lectura> coleccion = new ArrayList<>();
     
     public BibliotecaPersonal(){}
     
     public void agregarLectura(Lectura nuevaLectura){
+        //if(coleccion.isEmpty()) coleccion.add(nuevaLectura);
+        boolean agregado = true;
         for(Lectura l: coleccion){
             if(l.getTitulo().equalsIgnoreCase(nuevaLectura.getTitulo())){
-               System.out.println("Ya existe esta Lectura");
-                break;
+               
+               agregado = false;
             }
         }
-        coleccion.add(nuevaLectura);
-        System.out.println("Se agrego exitosamente");
+        if(agregado == true){
+           coleccion.add(nuevaLectura);
+           System.out.println("Se agrego exitosamente");
+        } else System.out.println("Ya existe esta Lectura");
+        
     }
     
     public void eliminarObraPorTitulo(String titulo){
@@ -29,11 +34,11 @@ public class BibliotecaPersonal {
         for(Lectura l: coleccion){
             if(l.getTitulo().equalsIgnoreCase(titulo)){
                 encont = coleccion.remove(l);
-                System.out.println("Lectura elimminada");
+                System.out.println("\nLectura " +titulo + " elimminada");
                 break;
             }
         }
-        if(encont == false) System.out.println("El titulo " + titulo + "no existe");
+        if(encont == false) System.out.println("\nEl titulo " + titulo + " no existe");
     }
     
     //OPERADOR TERNARIO
@@ -45,21 +50,21 @@ public class BibliotecaPersonal {
     */
     
     public void eliminarObraPorAutor(String autor){
-        boolean encont = false;
+        ArrayList<Lectura> eliminados = new ArrayList<>();
+        
         for(Lectura l: coleccion){
             if(l.getAutor().equalsIgnoreCase(autor)){
-                encont = coleccion.remove(l);
-                System.out.println("Lectura elimminada");
-                break;
-//System.out.println(coleccion.remove(l) ? "Lectura eliminada" : "No existe esta Lectura");
+                eliminados.add(l);
             }
-        }
-        if(encont == false) System.out.println("El autor " + autor + "no existe");
+        }   
+        coleccion.removeAll(eliminados);
+        System.out.println("\nCantidad de Obras eliminadas del autor " +autor+": " + eliminados.size());
     }
-    
+    //System.out.println("Lectura con el autor"+ autor + " elimminada");
+    //if(encont == false) System.out.println("El autor " + autor + "no existe");
     public Lectura obtenerLecturaMayor(){
         if(coleccion.isEmpty()){
-            //System.out.println("La lista esta vacia");
+            System.out.println("La lista esta vacia");
             return null;
         }
         Lectura mayor = coleccion.get(0);
@@ -74,7 +79,7 @@ public class BibliotecaPersonal {
     
     public Lectura obtenerLecturaMenor(){
         if(coleccion.isEmpty()){
-            //System.out.println("La lista esta vacia");
+            System.out.println("La lista esta vacia");
             return null;
         }
         Lectura menor = coleccion.get(0);
@@ -87,10 +92,10 @@ public class BibliotecaPersonal {
     }
     
     public void mostrarResumen(){
+       if(coleccion.isEmpty()) System.out.println("La lista esta vacia");
        for(Lectura l: coleccion){
            System.out.println("~~~~~~~~~~~~~~~~");
-           l.resumen();
-           System.out.println("~~~~~~~~~~~~~~~~");
+           System.out.println(l.resumen());
        }
     }
     
