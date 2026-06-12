@@ -21,6 +21,7 @@ public class Formacion {
 
     public void agregarLocomotora(Locomotora l){
         this.locomotoras.add(l);
+        System.out.println("=========( Se agrego Locomotora a la Formacion )=========");
     }
 
     public void agregarVagon(Vagon v){
@@ -89,6 +90,7 @@ public class Formacion {
     }
 
     public boolean puedeMoverse() {
+        //System.out.println("--------{ Puede Moverse la Formacion? }--------");
         return this.totalArrastreLocomotoras() >= this.totalPesoMaximoVagones();
     }
 
@@ -122,12 +124,12 @@ public class Formacion {
     public void mostrarDetalles(){
         System.out.println("Cantidad de locomotoras: " + locomotoras.size());
         System.out.println("Cantidad de vagones: " + vagones.size());
-        System.out.println("Puede moverse?: ");
+        System.out.println("--------{ Puede Moverse la Formacion? }--------");
         if (this.puedeMoverse()){
-            System.out.println("SI");
+            System.out.println("---SI---");
         }
         else{
-            System.out.println("NO");
+            System.out.println("---NO---");
         }
         System.out.println("Vagones Livianos: " + this.vagonesLivianos());
         System.out.println("Valocidad Maxima: " + this.velocidadMaxima());

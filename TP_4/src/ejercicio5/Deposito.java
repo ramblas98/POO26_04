@@ -40,6 +40,7 @@ public class Deposito {
 
     public void agregarLocomotoraSuelta(Locomotora l){
         this.listaLocotorasSueltas.add(l);
+        System.out.println("==========( Se agrego Locomotora Suelta al Deposito )==========");
     }
     public void eliminarLocomotoraSuelta(int i){
         this.listaLocotorasSueltas.remove(this.listaLocotorasSueltas.get(i));
@@ -47,6 +48,7 @@ public class Deposito {
 
     public void agregarFormacion(Formacion f){
         this.listaFormaciones.add(f);
+        System.out.println("<=======-- Formacion Añadida --======>");
     }
 
     public ArrayList<Vagon> cojunto() {
@@ -97,9 +99,15 @@ public class Deposito {
     }
 
     public void mostrarListaFormacionesDetalles(){
+        System.out.println("_____________________________________");
+        System.out.println(" ");
         for(Formacion i : listaFormaciones){
+            System.out.println("<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>");
             i.mostrarDetalles();
+            System.out.println("<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>");
+            System.out.println(" ");
         }
+        System.out.println("_____________________________________");
     }
 
     public void completarFormaciones(){

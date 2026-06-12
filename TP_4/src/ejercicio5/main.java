@@ -40,26 +40,53 @@ public class main {
         d1.mostrarListaFormacionesDetalles();
         */
 
-        // TODO code application logic here
+        //TODO code application logic here
+        System.out.println("=============================");
+        System.out.println("===========DEPOSITO==========");
+        System.out.println("=============================");
+
         Deposito d = new Deposito();
 
+        System.out.println(" ");
+
         Formacion f1=new Formacion();
+        d.agregarFormacion(f1);
+
+        //System.out.println("<=======-- Formacion 1 Añadida --======>");
+
         f1.agregarVagon(new VagonPasajero(10, 2));
         f1.agregarVagon(new VagonCarga(10, 3.5, 3000.0));
         Locomotora l1= new Locomotora(1234.0, 4567.0, 7890.0);
         Locomotora l2= new Locomotora(1000.0, 40000.0, 70000.0);
         f1.agregarLocomotora(l1);
         f1.agregarLocomotora(l2);
-        System.out.println(f1.puedeMoverse());
+        //System.out.println("=========( Se Agrego Locomotora 1 a la Formacion 1 )=========");
+        //System.out.println("=========( Se Agrego Locomotora 2 a la Formacion 1 )=========");
+        System.out.println("--------{ Puede Moverse la Formacion? }--------");
+        if(f1.puedeMoverse()){
+            System.out.println("---SI---");
+        }else{
+            System.out.println("---NO---");
+        }
 
+
+        System.out.println(" ");
 
         Formacion f2=new Formacion();
-        d.agregarFormacion(f1);
         d.agregarFormacion(f2);
+        /*
+        System.out.println("--------{ Puede Moverse la Formacion? }--------");
+        if(f2.puedeMoverse()){
+            System.out.println("---SI---");
+        }else{
+            System.out.println("---NO---");
+        }
+         */
 
+        System.out.println(" ");
 
         //Locomotoras sueltas
-        System.out.println("Locomotoras sueltas");
+        System.out.println("<===========-- Locomotoras sueltas --===========> ");
         Locomotora lSuelta1= new Locomotora(1111.0, 2222.0, 3333.0);
         d.agregarLocomotoraSuelta(lSuelta1);
         Locomotora lSuelta2= new Locomotora(4444.0, 5555.0, 6666.0);
@@ -67,6 +94,7 @@ public class main {
         Locomotora lSuelta3= new Locomotora(7777.0, 8888.0, 9999.0);
         d.agregarLocomotoraSuelta(lSuelta3);
 
+        System.out.println(" ");
 
         System.out.println("---ESTADO FORMACIONES INICIAL---");
         d.mostrarListaFormacionesDetalles();
@@ -84,21 +112,35 @@ public class main {
         //System.out.println("Locomotoras sueltas disponibles: " + d.getListaLocotorasSueltas().size());
         // completa las formaciones que no pueden moverse
         Formacion f3=new Formacion();
+        d.agregarFormacion(f3);
+
         f3.agregarVagon(new VagonPasajero(1, 1));
         f3.agregarVagon(new VagonCarga(1, 1, 30.0));
         Locomotora la= new Locomotora(12.0, 45.0, 78.0);
-        f1.agregarLocomotora(la);
-        System.out.println("Verificacion: " + f3.puedeMoverse());
+        f3.agregarLocomotora(la);
+        if(f3.puedeMoverse()){
+            System.out.println("---SI---");
+        }else{
+            System.out.println("---NO---");
+        }
+        //System.out.println("Verificacion: " + f3.puedeMoverse());
 
         Formacion f4=new Formacion();
+        d.agregarFormacion(f4);
+
         f4.agregarVagon(new VagonPasajero(2, 1));
         f4.agregarVagon(new VagonCarga(3, 1, 20.0));
         Locomotora lb= new Locomotora(11.0, 35.0, 48.0);
-        f1.agregarLocomotora(lb);
-        System.out.println("Verificacion: " + f4.puedeMoverse());
+        f4.agregarLocomotora(lb);
+        if(f4.puedeMoverse()){
+            System.out.println("---SI---");
+        }else{
+            System.out.println("---NO---");
+        }
+        //System.out.println("Verificacion: " + f4.puedeMoverse());
 
-        d.agregarFormacion(f3);
-        d.agregarFormacion(f4);
+        System.out.println(" ");
+
         Locomotora lSuelta4= new Locomotora(101.0, 350.0, 480.0);
         d.agregarLocomotoraSuelta(lSuelta4);
         Locomotora lSuelta5= new Locomotora(121.0, 50.0, 180.0);
