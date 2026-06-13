@@ -1,4 +1,4 @@
-package ejercicio5;
+package ejercicio5_interface;
 
 public class main {
     public static void main(String[] args){

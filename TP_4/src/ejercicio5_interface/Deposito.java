@@ -1,4 +1,4 @@
-package ejercicio5;
+package ejercicio5_interface;
 
 import java.util.ArrayList;
 import java.util.Iterator;
