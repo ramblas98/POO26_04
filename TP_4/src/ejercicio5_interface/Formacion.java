@@ -1,6 +1,8 @@
 package ejercicio5_interface;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Formacion implements Comparable<Formacion>{
     private ArrayList<Locomotora> locomotoras;
@@ -8,6 +10,7 @@ public class Formacion implements Comparable<Formacion>{
 
     @Override
     public int compareTo(Formacion o){
+        /*
         double um1 = this.velocidadMaxima();
         double um2 = o.velocidadMaxima();
         if(um1 == um2){
@@ -17,7 +20,20 @@ public class Formacion implements Comparable<Formacion>{
         }else{
             return 1;
         }
+        */
+        return Double.compare(this.velocidadMaxima(),o.velocidadMaxima());
     }
+
+    // Ordenar los vagones de esta formación por peso máximo (ascendente)
+    public void ordenarVagonesPorPeso() {
+        Collections.sort(this.vagones, new CompararPesoVagon());
+    }
+
+
+    public void ordenarLocomotorasPorPesoDeArrastre(){
+        Collections.sort(this.locomotoras);
+    }
+
     public Formacion() {
         this.locomotoras = new ArrayList<>();
         this.vagones = new ArrayList<>();

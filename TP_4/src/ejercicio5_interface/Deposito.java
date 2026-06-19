@@ -1,11 +1,29 @@
 package ejercicio5_interface;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class Deposito {
     private ArrayList<Formacion> listaFormaciones;
     private ArrayList<Locomotora> listaLocotorasSueltas;
+
+    public void ordenarFormacionesPorVelocidad(){
+        Collections.sort(this.listaFormaciones);
+    }
+
+    public void ordenarLocomotorasSueltasPorVelocidad(){
+        Collections.sort(this.listaLocotorasSueltas);
+    }
+
+    public void ordenarFormacionesPorCantidadDeVagones() {
+        Collections.sort(this.listaFormaciones, new CompararCantidadDeVagones());
+    }
+
+    public void ordenarPorCantidadDeLocomotoras(){
+        Collections.sort(this.listaFormaciones, new CompararCantidadLocomotoras());
+    }
 
     public Deposito() {
         this.listaFormaciones= new ArrayList<>();

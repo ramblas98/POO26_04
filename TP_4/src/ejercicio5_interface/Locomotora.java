@@ -1,6 +1,7 @@
 package ejercicio5_interface;
 
 import java.lang.Comparable;
+import java.util.Collections;
 
 public class Locomotora implements Comparable<Locomotora> {
     private double peso;
@@ -9,9 +10,9 @@ public class Locomotora implements Comparable<Locomotora> {
 
     @Override
     public int compareTo(Locomotora o){
-
         return Double.compare(this.velocidadMaxima,o.velocidadMaxima);
     }
+
     public Locomotora() {
         this.peso = 10;
         this.pesoMaximo = 60;
