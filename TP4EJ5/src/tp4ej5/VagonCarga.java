@@ -1,6 +1,6 @@
 package tp4ej5;
 
-public class VagonCarga extends Vagon{
+public class VagonCarga extends Vagon implements Comparable{
     private double cargaMaxima;
 
     public VagonCarga() {
@@ -31,5 +31,13 @@ public class VagonCarga extends Vagon{
     public boolean esLiviano() {
         return this.pesoMaximo() < 2500;
     }
+    
+    /*@Override
+    public int compareTo(Object o){
+        VagonCarga v = (VagonCarga) o;
+        double c1= this.cargaMaxima;
+        double c2= v.cargaMaxima;
+        return Double.compare(c1, c2);
+    }*/
 
 }

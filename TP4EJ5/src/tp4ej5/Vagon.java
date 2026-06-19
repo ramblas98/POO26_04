@@ -1,6 +1,7 @@
 package tp4ej5;
 
-public abstract class  Vagon {
+
+public abstract class  Vagon implements Comparable{
     private double largo;
     private double ancho;
 
@@ -29,4 +30,10 @@ public abstract class  Vagon {
 
     public abstract double pesoMaximo();
     public abstract boolean esLiviano();
+    
+    @Override
+    public int compareTo(Object o) {
+        Vagon v = (Vagon) o;
+        return Double.compare(this.pesoMaximo(), v.pesoMaximo());
+    }
 }

@@ -1,6 +1,6 @@
 package tp4ej5;
 
-public class VagonPasajero extends Vagon{
+public class VagonPasajero extends Vagon implements Comparable{
     public VagonPasajero() {
     }
     public VagonPasajero(double largo, double ancho) {
@@ -40,5 +40,12 @@ public class VagonPasajero extends Vagon{
         }
         return (int) ((super.getLargo()*10));
     }
+    /*@Override
+    public int compareTo(Object o){
+        VagonPasajero v = (VagonPasajero) o;
+        double p1= this.cantidadPasajeros();
+        double p2= v.cantidadPasajeros();
+        return Double.compare(p1, p2);
+    }*/
     
 }

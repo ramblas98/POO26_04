@@ -1,8 +1,10 @@
 package tp4ej5;
 
 import java.util.ArrayList;
+//import java.util.Comparator;
+import java.util.Collections;
 
-public class Deposito {
+public class Deposito{
     private final ArrayList<Formacion> listaFormaciones;
     private final ArrayList<Locomotora> listaLocomotorasSueltas;
 
@@ -56,7 +58,7 @@ public class Deposito {
         }
     }
     
-    public ArrayList<Vagon> cojunto() {
+    public ArrayList<Vagon> cojuntoVagon () {//-masPesados----------------
         ArrayList<Vagon> v=new ArrayList<>();
         for(int i=0; i<this.listaFormaciones.size(); i++){
             Formacion f=this.listaFormaciones.get(i);
@@ -65,10 +67,21 @@ public class Deposito {
         return v;
     }
     public void mostrarDetallesFormaciones(){
+        //Collections.sort(this.listaFormaciones,new Comparator());
         int c=1;
         for(Formacion f : listaFormaciones){
             System.out.println("\nFormacion " + c);
             f.mostrarDetalles();
+            System.out.println();
+            c++;
+        }
+    }
+    public void mostrarDetallesLocomotorasSueltas(){
+        //Collections.sort(this.listaFormaciones,new Comparator());
+        int c=1;
+        for(Locomotora l : listaLocomotorasSueltas){
+            System.out.println("\nLocomotora Suelta: " + c);
+            l.detalleLocomotora();
             System.out.println();
             c++;
         }
@@ -78,20 +91,29 @@ public class Deposito {
         for(int i=0 ; i<this.getListaFormaciones().size() ; i++){
             this.locomotoraAFormacion(i);
         }
-        
-        /*for(Formacion f : this.getListaFormaciones()){
-            if(!f.puedeMoverse()){
-                boolean completa=false;
-                while(!this.getListaLocomotorasSueltas().isEmpty() && completa==false){
-                    for(Locomotora l : this.getListaLocomotorasSueltas()){
-                        if(!f.puedeMoverse()){
-                            f.agregarLocomotora(l);
-                            completa=true;
-                            System.out.println("Formacion completada");
-                        }
-                    }
-                }
-            }
-        }*/
     }
+    //ORDENAR
+    public void ordenarPorOrdenNatural() {
+        Collections.sort(this.listaFormaciones);
+        Collections.sort(this.listaLocomotorasSueltas);
+        System.out.println("\nORDEN NATURAL (velodidad formaciones y velocidad maxima locmotoras):");
+        this.mostrarDetallesFormaciones();
+    }
+    public void ordenarPorPasajeros() {
+        Collections.sort(this.listaFormaciones, new CompararPorPasajeros());
+        System.out.println("\nFORMACIONES POR PASAJEROS");
+        this.mostrarDetallesFormaciones();
+    }
+    public void ordenarPorPesoVagon() {
+        Collections.sort(this.listaFormaciones, new CompararPorPesoVagon());
+        System.out.println("\nFORMACIONES POR EMPUJE FALTANTE");
+        this.mostrarDetallesFormaciones();
+    }
+    public void ordenarLocomotorasPorqPeso() {
+        this.listaLocomotorasSueltas.sort((l1, l2) 
+                -> Double.compare(l1.getVelocidadMaxima(), l2.getVelocidadMaxima()));
+        System.out.println("\nLOCOMOTORAS POR VELOCIDAD MAXIMA");
+        this.mostrarDetallesLocomotorasSueltas();
+    }
+    
 }

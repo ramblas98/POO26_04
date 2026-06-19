@@ -2,7 +2,8 @@ package tp4ej5;
 
 import java.util.ArrayList;
 
-public class Formacion {
+
+public class Formacion implements Comparable{
     private final ArrayList<Locomotora> locomotoras;
     private final ArrayList<Vagon> vagones;
 
@@ -120,6 +121,7 @@ public class Formacion {
         System.out.println("Cantidad de locomotoras: " + locomotoras.size());
         System.out.println("Cantidad de vagones: " + vagones.size());
         System.out.println("Total pasajeros: " + this.totalPasajeros());
+        System.out.println("Velocidad Maxima: " + this.velocidadMaximaMin());
         System.out.println("Puede moverse?: ");
         if (this.puedeMoverse()){
             System.out.print(" SI");
@@ -129,4 +131,22 @@ public class Formacion {
         }
         System.out.print("");
     }
+    
+    //Orden natural
+    @Override
+    public int compareTo(Object o){
+        Formacion f = (Formacion) o;
+        double vmm1= this.velocidadMaximaMin();
+        double vmm2= f.velocidadMaximaMin();
+        if(vmm1==vmm2){
+            return 0;
+        }
+        else if(vmm1<vmm2){
+            return -1;
+        }
+        return 1;
+        //o usar return Double.compare(vmm1, vmm2);
+    }
+       
+    
 }
