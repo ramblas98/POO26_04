@@ -10,20 +10,20 @@ package com.mycompany.ejercicio_4_tp4;
  */
 public class AutoDiesel extends Auto{
     private String tipoInyeccion;
-    private double precioDiesel;
+    static private double precioDiesel;
 
     public AutoDiesel() {
     }
 
     public AutoDiesel(String tipoInyeccion, double precioDiesel) {
         this.tipoInyeccion = tipoInyeccion;
-        this.precioDiesel = precioDiesel;
+        AutoDiesel.precioDiesel = precioDiesel;
     }
 
     public AutoDiesel(String tipoInyeccion, double precioDiesel, String patente, double combustible) {
         super(patente, combustible);
         this.tipoInyeccion = tipoInyeccion;
-        this.precioDiesel = precioDiesel;
+        AutoDiesel.precioDiesel = precioDiesel;
     }
     
     public String getTipoInyeccion() {
@@ -39,7 +39,7 @@ public class AutoDiesel extends Auto{
     }
 
     public void setPrecioDiesel(double precioDiesel) {
-        this.precioDiesel = precioDiesel;
+        AutoDiesel.precioDiesel = precioDiesel;
     }
     
     @Override
@@ -72,4 +72,11 @@ public class AutoDiesel extends Auto{
         System.out.println("Se recorrio " + km + " KMs con " + String.format("%.2f", consumo) + " Lts");
         System.out.println("Combustible actual: " + String.format("%.2f", getCombustible()) + " Lts");
     }
+
+    @Override
+    public String toString() {
+        return "AutoDiesel{ "+super.toString() + ", tipoInyeccion: " + tipoInyeccion + '}';
+    }
+    
+    
 }

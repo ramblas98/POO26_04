@@ -10,7 +10,7 @@ package com.mycompany.ejercicio_4_tp4;
  */
 public class AutoNaftero extends Auto {
     private int octanaje;
-    private double precioNafta;
+    static private double precioNafta;
     
     //Constructor sin parametro
     public AutoNaftero() {
@@ -18,13 +18,13 @@ public class AutoNaftero extends Auto {
     //Constructor de la clase
     public AutoNaftero(int octanaje, double precioNafta) {
         this.octanaje = octanaje;
-        this.precioNafta = precioNafta;
+        AutoNaftero.precioNafta = precioNafta;
     }
     //Constructor
     public AutoNaftero(int octanaje, double precioNafta, String patente, double combustible) {
         super(patente, combustible);
         this.octanaje = octanaje;
-        this.precioNafta = precioNafta;
+        AutoNaftero.precioNafta = precioNafta;
     }
     
     @Override
@@ -36,10 +36,10 @@ public class AutoNaftero extends Auto {
     public void cargar(double monto) {
         double nuevoMonto = monto * (10.0/100); //PROMOCION
         double precioFinal = monto + nuevoMonto;
-        double nuevoCombustible =precioFinal/this.precioNafta;
+        double nuevoCombustible =precioFinal/AutoNaftero.precioNafta;
         setCombustible(nuevoCombustible+getCombustible());
         System.out.println("Gracias a la promo 'Mundial 2026' se cargo: "+String.format("%.2f", precioFinal)+"$");
-        System.out.println("Combustible cargado: "+String.format("%.2f",precioFinal/this.precioNafta));
+        System.out.println("Combustible cargado: "+String.format("%.2f",precioFinal/AutoNaftero.precioNafta));
         System.out.println("Combustible actual: "+String.format("%.2f",getCombustible())+"Lts");
     }
     
@@ -74,6 +74,13 @@ public class AutoNaftero extends Auto {
     }
 
     public void setPrecioNafta(double precioNafta) {
-        this.precioNafta = precioNafta;
+        AutoNaftero.precioNafta = precioNafta;
     }
+
+    @Override
+    public String toString() {
+        return "AutoNaftero{ "+super.toString() + ", octanaje: " + octanaje + '}';
+    }
+    
+    
 }

@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @author USUARIO
  */
-public abstract class Auto {
+public abstract class Auto implements Comparable{
     private String patente;
     private double combustible;
     
@@ -61,14 +61,18 @@ public abstract class Auto {
         return Objects.equals(this.patente, other.patente);
     }
 
-    public void cargar(double monto){
-    }
+    abstract public void cargar(double monto);
 
-    public void recorrer(double monto){
-    }
+    abstract public void recorrer(double monto);
     
     @Override
     public String toString() {
-        return null;
+        return "Patente: "+patente+", combustible: "+combustible;
+    }
+
+    @Override
+    public int compareTo(Object o){
+        Auto a = (Auto) o;
+        return this.patente.compareTo(a.getPatente());
     }
 }

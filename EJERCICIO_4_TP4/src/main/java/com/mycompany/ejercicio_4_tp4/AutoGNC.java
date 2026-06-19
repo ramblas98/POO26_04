@@ -10,20 +10,20 @@ package com.mycompany.ejercicio_4_tp4;
  */
 public class AutoGNC extends Auto{
     private double capacidadTubo;
-    private double precioGNC;
+    static private double precioGNC;
 
     public AutoGNC() {
     }
 
     public AutoGNC(double capacidadTubo, double precioGNC) {
         this.capacidadTubo = capacidadTubo;
-        this.precioGNC = precioGNC;
+        AutoGNC.precioGNC = precioGNC;
     }
     
     public AutoGNC(double capacidadTubo, double precioGNC, String patente, double combustible) {
         super(patente, combustible);
         this.capacidadTubo = capacidadTubo;
-        this.precioGNC = precioGNC;
+        AutoGNC.precioGNC = precioGNC;
     }
     //Getter
     public double getCapacidadTubo() {
@@ -40,7 +40,7 @@ public class AutoGNC extends Auto{
     }
 
     public void setPrecioGNC(double precioGNC) {
-        this.precioGNC = precioGNC;
+        AutoGNC.precioGNC = precioGNC;
     }
     
     @Override
@@ -54,7 +54,7 @@ public class AutoGNC extends Auto{
         double espacioDisponible = capacidadTubo - getCombustible();
 
         if (combustibleCargado <= espacioDisponible) {
-            // Entra todo
+            // se carga
             setCombustible(getCombustible() + combustibleCargado);
             System.out.println("Se cargo: " + String.format("%.2f", combustibleCargado) + " Lts");
             System.out.println("Combustible actual: " + String.format("%.2f", getCombustible()) + " Lts");
@@ -99,5 +99,11 @@ public class AutoGNC extends Auto{
         System.out.println("Combustible disponible: " + String.format("%.2f", getCombustible()) + " Lts");
     }
 
+    @Override
+    public String toString() {
+        return "AutoGNC{ "+super.toString() + ", capacidadTubo: " + capacidadTubo + '}';
+    }
+    
+    
 }
 
