@@ -5,6 +5,7 @@ import java.lang.Comparable;
 public class VagonPasajero extends Vagon implements Comparable<VagonPasajero> {
     @Override
     public int compareTo(VagonPasajero o){
+        /*
         double ps1 = this.cantidadPasajeros();
         double ps2 = o.cantidadPasajeros();
         if(ps1 == ps2){
@@ -14,6 +15,8 @@ public class VagonPasajero extends Vagon implements Comparable<VagonPasajero> {
         }else{
             return 1;
         }
+        */
+        return Double.compare(this.cantidadPasajeros(),o.cantidadPasajeros());
     }
     public VagonPasajero(){
         super();

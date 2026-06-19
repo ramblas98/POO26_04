@@ -7,6 +7,7 @@ public class VagonCarga extends Vagon implements Comparable<VagonCarga> {
 
     @Override
     public int compareTo(VagonCarga o){
+        /*
         double ps1 = this.cargaMaxima;
         double ps2 = o.cargaMaxima;
         if(ps1 == ps2){
@@ -16,7 +17,8 @@ public class VagonCarga extends Vagon implements Comparable<VagonCarga> {
         }else{
             return 1;
         }
-        //return Double.compare(this.cargaMaxima,o.cargaMaxima);
+        */
+        return Double.compare(this.cargaMaxima,o.cargaMaxima);
     }
     public VagonCarga() {
     }
