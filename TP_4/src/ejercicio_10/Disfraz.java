@@ -20,7 +20,7 @@ public class Disfraz implements Rentable{
     public void desocupar() {
         this.dias = 0;
     }
-    
+
     public Disfraz(){
         this.personaje = "Goku";
         this.talle = 'M';
