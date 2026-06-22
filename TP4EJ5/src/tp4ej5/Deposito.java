@@ -98,6 +98,7 @@ public class Deposito{
         Collections.sort(this.listaLocomotorasSueltas);
         System.out.println("\nORDEN NATURAL (velodidad formaciones y velocidad maxima locmotoras):");
         this.mostrarDetallesFormaciones();
+        this.mostrarDetallesLocomotorasSueltas();
     }
     public void ordenarPorPasajeros() {
         Collections.sort(this.listaFormaciones, new CompararPorPasajeros());
@@ -109,9 +110,18 @@ public class Deposito{
         System.out.println("\nFORMACIONES POR EMPUJE FALTANTE");
         this.mostrarDetallesFormaciones();
     }
-    public void ordenarLocomotorasPorqPeso() {
-        this.listaLocomotorasSueltas.sort((l1, l2) 
-                -> Double.compare(l1.getVelocidadMaxima(), l2.getVelocidadMaxima()));
+    public void ordenarPorCantidadVagones(){
+        Collections.sort(listaFormaciones, new CompararPorCantidadVagones());
+        System.out.println("\nORDENAR POR CANTIDAD DE VAGONES EN LA FORMACION");
+        this.mostrarDetallesFormaciones();
+    }
+    public void ordenarPorCantidadLocomotorasEnFormacion(){
+        Collections.sort(listaFormaciones, new CompararPorCantidadLocomotorasFormacion());
+        System.out.println("\nORDENAR POR CANTIDAD DE LOCOMOTORAS EN LA FORMACION");
+        this.mostrarDetallesFormaciones();
+    }
+    public void ordenarLocomotorasPorArrastreUtil() {
+        this.listaLocomotorasSueltas.sort((l1, l2) -> Double.compare(l1.arrastreUtil(), l2.arrastreUtil()));
         System.out.println("\nLOCOMOTORAS POR VELOCIDAD MAXIMA");
         this.mostrarDetallesLocomotorasSueltas();
     }

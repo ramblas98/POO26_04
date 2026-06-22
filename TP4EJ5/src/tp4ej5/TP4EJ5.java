@@ -82,20 +82,13 @@ public class TP4EJ5 {
         d.mostrarDetallesFormaciones();
         System.out.println("Locomotoras sueltas en el deposito: " + d.getListaLocomotorasSueltas().size());
         
+        d.ordenarPorOrdenNatural();
         
-        //Agregar locomotoras sueltas necesarias
-        /*f3.agregarLocomotora(new Locomotora(101.0, 350.0, 480.0));
-        f3.agregarLocomotora(new Locomotora(121.0, 50.0, 180.0));
-        f3.agregarLocomotora(new Locomotora(111.0, 150.0, 480.0));
+        d.ordenarLocomotorasPorArrastreUtil();
         
+        //d.ordenarPorPasajeros();
+        //d.ordenarPorPesoVagon();
+        d.ordenarPorCantidadLocomotorasEnFormacion();
         
-        f4.agregarLocomotora(new Locomotora(11.0, 30.0, 480.0));
-        f4.agregarLocomotora(new Locomotora(141.0, 340.0, 330.0));
-        f4.agregarLocomotora(new Locomotora(114.0, 460.0, 50.0));*/
-        
-        
-        //d.locomotoraAFormacion(lSuelta1);
-        //d.locomotoraAFormacion(lSuelta2);
-        //d.locomotoraAFormacion(lSuelta3);   
     }
 }
