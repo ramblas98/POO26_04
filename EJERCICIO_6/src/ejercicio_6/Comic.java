@@ -24,15 +24,11 @@ public class Comic extends Lectura{
         this.color     = color;
     }
  
-    // Getters y setters específicos
+    // Getters y setters
     public String  getDibujante()           { return dibujante; }
     public void    setDibujante(String d)   { this.dibujante = d; }
  
-    public boolean isColor()          { return color; }
-    public void setAcolor()     { this.color = true; }
-    public void setBlacoYNegro() { this.color = false; }
- 
-    // Métodos abstractos implementados
+    // Métodos abstractos
     @Override
     public int tiempoEstimadoLectura() {
         return getTotalPaginas() / 100;

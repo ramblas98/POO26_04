@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ejercicio_6;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BibliotecaPersonal {
@@ -11,6 +13,10 @@ public class BibliotecaPersonal {
     private final List<Lectura> coleccion = new ArrayList<>();
 
     public BibliotecaPersonal() {
+    }
+    
+    public void ordenarBiblioteca(){
+        Collections.sort(coleccion);
     }
     
     // 1. Agregar
@@ -35,16 +41,15 @@ public class BibliotecaPersonal {
         }
     }
     
-    public int eliminarPorAutor(String autor) {
+    public void eliminarPorAutor(String autor) {
         int antes = coleccion.size();
-        coleccion.removeIf(l -> l.getAutor().equalsIgnoreCase(autor));
+        coleccion.removeIf(l -> l.getAutor().equalsIgnoreCase(autor)); 
         int eliminados = antes - coleccion.size();
         if (eliminados > 0) {
             System.out.println("Eliminadas " + eliminados + " obra(s) del autor: " + autor );
         } else {
             System.out.println("No se encontró ninguna obra del autor: " + autor );
         }
-        return eliminados;
     }
     
     // 3. Mayor y menor calificación 

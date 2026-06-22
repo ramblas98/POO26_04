@@ -4,7 +4,7 @@
  */
 package ejercicio_6;
 
-public abstract class Lectura{
+public abstract class Lectura implements Comparable<Lectura>{
     
     private String titulo;
     private String autor;
@@ -41,9 +41,16 @@ public abstract class Lectura{
     public abstract String resumen();
  
     public abstract int tiempoEstimadoLectura();
+    
  
     @Override
     public String toString() {
         return resumen();
+    }
+    
+    @Override
+    public int compareTo(Lectura o) {
+        Lectura l = (Lectura) o;
+        return Integer.compare(this.tiempoEstimadoLectura(),l.tiempoEstimadoLectura());
     }
 }
